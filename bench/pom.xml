@@ -9,6 +9,7 @@
   <modules>
   	<module>bench.user</module>
   	<module>bench.core</module>
+  	<module>zsq.scheduler</module>
   </modules>
   
   <build>
