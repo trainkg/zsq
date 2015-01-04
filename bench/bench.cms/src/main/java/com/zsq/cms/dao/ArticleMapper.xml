@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zsq.cms.dao.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.zsq.cms.entity.Article" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="smTitle" property="smtitle" jdbcType="VARCHAR" />
+    <result column="digest" property="digest" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="modify_date" property="modifyDate" jdbcType="DATE" />
+    <result column="creatName" property="creatname" jdbcType="VARCHAR" />
+    <result column="modifyName" property="modifyname" jdbcType="VARCHAR" />
+    <result column="createGroupName" property="creategroupname" jdbcType="VARCHAR" />
+    <result column="modifyGroupName" property="modifygroupname" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="keyward" property="keyward" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zsq.cms.entity.Article" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, smTitle, digest, create_date, modify_date, creatName, modifyName, createGroupName, 
+    modifyGroupName, creator, modifier, keyward
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from article
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zsq.cms.entity.Article" >
+    insert into article (id, title, smTitle, 
+      digest, create_date, modify_date, 
+      creatName, modifyName, createGroupName, 
+      modifyGroupName, creator, modifier, 
+      keyward, content)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{smtitle,jdbcType=VARCHAR}, 
+      #{digest,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, #{modifyDate,jdbcType=DATE}, 
+      #{creatname,jdbcType=VARCHAR}, #{modifyname,jdbcType=VARCHAR}, #{creategroupname,jdbcType=VARCHAR}, 
+      #{modifygroupname,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR}, 
+      #{keyward,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsq.cms.entity.Article" >
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="smtitle != null" >
+        smTitle,
+      </if>
+      <if test="digest != null" >
+        digest,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="modifyDate != null" >
+        modify_date,
+      </if>
+      <if test="creatname != null" >
+        creatName,
+      </if>
+      <if test="modifyname != null" >
+        modifyName,
+      </if>
+      <if test="creategroupname != null" >
+        createGroupName,
+      </if>
+      <if test="modifygroupname != null" >
+        modifyGroupName,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="keyward != null" >
+        keyward,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="smtitle != null" >
+        #{smtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="digest != null" >
+        #{digest,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="modifyDate != null" >
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="creatname != null" >
+        #{creatname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyname != null" >
+        #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="creategroupname != null" >
+        #{creategroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifygroupname != null" >
+        #{modifygroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="keyward != null" >
+        #{keyward,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsq.cms.entity.Article" >
+    update article
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="smtitle != null" >
+        smTitle = #{smtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="digest != null" >
+        digest = #{digest,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="modifyDate != null" >
+        modify_date = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="creatname != null" >
+        creatName = #{creatname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyname != null" >
+        modifyName = #{modifyname,jdbcType=VARCHAR},
+      </if>
+      <if test="creategroupname != null" >
+        createGroupName = #{creategroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="modifygroupname != null" >
+        modifyGroupName = #{modifygroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="keyward != null" >
+        keyward = #{keyward,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zsq.cms.entity.Article" >
+    update article
+    set title = #{title,jdbcType=VARCHAR},
+      smTitle = #{smtitle,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      modify_date = #{modifyDate,jdbcType=DATE},
+      creatName = #{creatname,jdbcType=VARCHAR},
+      modifyName = #{modifyname,jdbcType=VARCHAR},
+      createGroupName = #{creategroupname,jdbcType=VARCHAR},
+      modifyGroupName = #{modifygroupname,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      keyward = #{keyward,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsq.cms.entity.Article" >
+    update article
+    set title = #{title,jdbcType=VARCHAR},
+      smTitle = #{smtitle,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=DATE},
+      modify_date = #{modifyDate,jdbcType=DATE},
+      creatName = #{creatname,jdbcType=VARCHAR},
+      modifyName = #{modifyname,jdbcType=VARCHAR},
+      createGroupName = #{creategroupname,jdbcType=VARCHAR},
+      modifyGroupName = #{modifygroupname,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      keyward = #{keyward,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zsq.cms.dao.ArticleRefColumnMapper" >
+  <resultMap id="BaseResultMap" type="com.zsq.cms.entity.ArticleRefColumn" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="art_col_ID" property="artColId" jdbcType="VARCHAR" />
+    <result column="article_id" property="articleId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, art_col_ID, article_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_ref_column
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from article_ref_column
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zsq.cms.entity.ArticleRefColumn" >
+    insert into article_ref_column (id, art_col_ID, article_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{artColId,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsq.cms.entity.ArticleRefColumn" >
+    insert into article_ref_column
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="artColId != null" >
+        art_col_ID,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="artColId != null" >
+        #{artColId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsq.cms.entity.ArticleRefColumn" >
+    update article_ref_column
+    <set >
+      <if test="artColId != null" >
+        art_col_ID = #{artColId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsq.cms.entity.ArticleRefColumn" >
+    update article_ref_column
+    set art_col_ID = #{artColId,jdbcType=VARCHAR},
+      article_id = #{articleId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

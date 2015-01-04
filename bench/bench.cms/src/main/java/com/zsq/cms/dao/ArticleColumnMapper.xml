@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zsq.cms.dao.ArticleColumnMapper" >
+  <resultMap id="BaseResultMap" type="com.zsq.cms.entity.ArticleColumn" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="p_c_id" property="pCId" jdbcType="VARCHAR" />
+    <result column="columnTypeId" property="columntypeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, code, name, status, create_date, p_c_id, columnTypeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_column
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from article_column
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zsq.cms.entity.ArticleColumn" >
+    insert into article_column (ID, code, name, 
+      status, create_date, p_c_id, 
+      columnTypeId)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{status,jdbcType=SMALLINT}, #{createDate,jdbcType=DATE}, #{pCId,jdbcType=VARCHAR}, 
+      #{columntypeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsq.cms.entity.ArticleColumn" >
+    insert into article_column
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="pCId != null" >
+        p_c_id,
+      </if>
+      <if test="columntypeid != null" >
+        columnTypeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="pCId != null" >
+        #{pCId,jdbcType=VARCHAR},
+      </if>
+      <if test="columntypeid != null" >
+        #{columntypeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsq.cms.entity.ArticleColumn" >
+    update article_column
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="pCId != null" >
+        p_c_id = #{pCId,jdbcType=VARCHAR},
+      </if>
+      <if test="columntypeid != null" >
+        columnTypeId = #{columntypeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsq.cms.entity.ArticleColumn" >
+    update article_column
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      create_date = #{createDate,jdbcType=DATE},
+      p_c_id = #{pCId,jdbcType=VARCHAR},
+      columnTypeId = #{columntypeid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

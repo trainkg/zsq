@@ -5,16 +5,5 @@
     <artifactId>cms.zsq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <description>
-  	 poster etc..
-  </description>
-  <artifactId>bench.3th</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.zsq</groupId>
-  		<artifactId>bench.user</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+  <artifactId>bench.cms</artifactId>
 </project>

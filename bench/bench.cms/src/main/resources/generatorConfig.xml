@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+  <generatorConfiguration>
+    <!-- <properties resource="generatorConfig.properties" /> -->
+    <classPathEntry location="D:\m_rep\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+ 	
+    <context id="XATL" targetRuntime="MyBatis3" defaultModelType="conditional">
+        <commentGenerator>
+            <!-- 去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/zsq?generateSimpleParameterMetadata=true"
+            userId="root" password="123456">
+        </jdbcConnection>
+ 
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+ 
+        <!-- targetProject:自动生成代码的位置 -->
+        <javaModelGenerator targetPackage="com.zsq.cms.entity" targetProject="..\bench.cms\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaModelGenerator>
+ 
+        <sqlMapGenerator targetPackage="com.zsq.cms.dao" targetProject="..\bench.cms\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+ 
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zsq.cms.dao" targetProject="..\bench.cms\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        
+        <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+        <table tableName="article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="article_column" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="article_ref_column" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="column_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>        
+    </context>
+</generatorConfiguration>
