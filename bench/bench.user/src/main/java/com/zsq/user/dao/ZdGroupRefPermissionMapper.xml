@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsq.user.dao.ZdGroupRefPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.zsq.user.entity.ZdGroupRefPermission">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="perm_id" jdbcType="VARCHAR" property="permId" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, perm_id, group_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zd_group_ref_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from zd_group_ref_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    insert into zd_group_ref_permission (id, perm_id, group_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{permId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    insert into zd_group_ref_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="permId != null">
+        perm_id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="permId != null">
+        #{permId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    update zd_group_ref_permission
+    <set>
+      <if test="permId != null">
+        perm_id = #{permId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    update zd_group_ref_permission
+    set perm_id = #{permId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zsq.user.entity.ZdGroupRefPermission">
+    <id column="id" jdbcType="VARBINARY" property="id" />
+    <result column="perm_id" jdbcType="VARCHAR" property="permId" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, perm_id, group_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="byte[]" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zd_group_ref_permission
+    where id = #{id,jdbcType=VARBINARY}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="byte[]">
+    delete from zd_group_ref_permission
+    where id = #{id,jdbcType=VARBINARY}
+  </delete>
+  <insert id="insert" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    insert into zd_group_ref_permission (id, perm_id, group_id
+      )
+    values (#{id,jdbcType=VARBINARY}, #{permId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    insert into zd_group_ref_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="permId != null">
+        perm_id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARBINARY},
+      </if>
+      <if test="permId != null">
+        #{permId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    update zd_group_ref_permission
+    <set>
+      <if test="permId != null">
+        perm_id = #{permId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARBINARY}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsq.user.entity.ZdGroupRefPermission">
+    update zd_group_ref_permission
+    set perm_id = #{permId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARBINARY}
+  </update>
+</mapper>

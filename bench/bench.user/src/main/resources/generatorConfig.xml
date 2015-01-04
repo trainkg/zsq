@@ -33,7 +33,21 @@
         </javaClientGenerator>
         
         <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
-        <table tableName="article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <table tableName="user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="user_role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="zd_group" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="zd_group_ref_permission" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="zd_permission" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="zd_user_group" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>            
+        <table tableName="role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="role_permission" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+            enableSelectByExample="false" selectByExampleQueryId="false"></table>                          
     </context>
 </generatorConfiguration>
