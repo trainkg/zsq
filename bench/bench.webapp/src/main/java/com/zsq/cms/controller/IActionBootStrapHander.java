@@ -5,5 +5,5 @@ package com.zsq.cms.controller;
  * @author zhuyy
  */
 public interface IActionBootStrapHander {
-
+	
 }
