@@ -12,6 +12,7 @@
 		<module>bench.core</module>
 		<module>zsq.scheduler</module>
 		<module>bench.webapp</module>
+		<module>bench.3th</module>
 	</modules>
 
 	<build>
