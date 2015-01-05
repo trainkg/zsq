@@ -14,12 +14,18 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body id="content">
     <h1>你好，世界！我是 {name}</h1>
-    
-    
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script src="zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
     <!-- <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    
+    <!-- 用户自定义script位置 -->
+    <script type="text/javascript">
+    	require(['dojo/dom,dojo/dom-construct'],function(dom, domConstruct){
+    		var content = dom.byId("content");
+    		domConstruct.place("<i>Dojo!</i>",content);
+    	});
+    </script>
   </body>
 </html>
