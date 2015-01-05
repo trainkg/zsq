@@ -8,8 +8,5 @@ package com.zsq.cms.controller;
  *
  */
 public class BaseAction {
-	
-	private IActionBootStrapHander hander;
-	
-	
+	//private IActionBootStrapHander hander;
 }

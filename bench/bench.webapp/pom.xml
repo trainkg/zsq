@@ -7,4 +7,38 @@
   </parent>
   <artifactId>bench.webapp</artifactId>
   <packaging>war</packaging>
+  <dependencies>
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>bench.core</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>bench.user</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>bench.3th</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>bench.cms</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
 </project>
