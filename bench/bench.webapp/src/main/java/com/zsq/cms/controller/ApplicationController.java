@@ -14,7 +14,15 @@ public class ApplicationController extends BaseAction {
 	/**
 	 * 系统根页面
 	 */
-	@RequestMapping
+	@RequestMapping("t1")
+	public String systemIndex1(){
+		return "/index";
+	}
+	
+	/**
+	 * 系统根页面
+	 */
+	@RequestMapping("t2")
 	public String systemIndex(){
 		return "/index";
 	}

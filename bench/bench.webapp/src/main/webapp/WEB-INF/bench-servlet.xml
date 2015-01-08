@@ -22,19 +22,7 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/" />
-		<property name="suffix" value=".jsp" />
+		<property name="suffix" value=".jsp" />	
 	</bean>
 
-	<!-- <mvc:resources location="/statics/" mapping="/statics/**"/> -->
-	
-	<!-- <mvc:default-servlet-handler /> -->
-	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">    
-	    <property name="exceptionMappings">    
-	        <props>    
-	            <prop key="org.apache.shiro.authz.UnauthorizedException">/auth/error</prop>
-	        </props>    
-	    </property>    
-	</bean> 
-	
 </beans>

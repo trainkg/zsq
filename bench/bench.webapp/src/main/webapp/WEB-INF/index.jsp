@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/commons/globalAttribute.jsp"%>
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
@@ -15,17 +16,31 @@
     <![endif]-->
   </head>
   <body id="content">
-    <h1>你好，世界！我是 {name}</h1>
-    <script src="zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <h1>你好，世界！我是 {name} ${_CP}</h1>
+    
+    <script src="${_CP}/statics/js/config.js"></script>
+    <script src="${_CP}/zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
     <!-- <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
     
+    <div>
+    	<h3>基于模板的自定义组件</h3>
+    	<div data-dojo-type="extend/hlWidget/hlWidget" data-dojo-props="name:'zhuyy'">
+    		<p>this is content info</p>
+    	</div>
+    </div>
     <!-- 用户自定义script位置 -->
     <script type="text/javascript">
-    	require(['dojo/dom,dojo/dom-construct'],function(dom, domConstruct){
+    	/* require(['dojo/dom','dojo/dom-construct','test/test','dojo/parser'],function(dom, domConstruct,Test,parser){
     		var content = dom.byId("content");
     		domConstruct.place("<i>Dojo!</i>",content);
-    	});
+    		var obj = new Test('1','triankg');
+    		obj.print();
+    		parser.parse();
+    	}); */
+    	require(['dojo/parser','extend/hlWidget/hlWidget'],function(parser){
+			parser.parse();
+		}); 
     </script>
   </body>
 </html>
