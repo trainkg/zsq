@@ -6,4 +6,16 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>bench.cms</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>bench.core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>bench.user</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

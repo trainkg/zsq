@@ -6,8 +6,8 @@
     <property name="contextName" value="steering" />
     
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder charset="UTF-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        <encoder charset="UTF-8"> <!--[%thread] encoder 可以指定字符集，对于中文输出有意义 -->
+            <pattern>%d{yy-MM-dd HH:mm:ss} %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -21,7 +21,7 @@
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+            <pattern>%d{yy-MM-dd HH:mm:ss} %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
