@@ -32,7 +32,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/bench-servlet.xml</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>bench-servlet</servlet-name>
@@ -95,5 +95,9 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+    
+    <welcome-file-list>
+    	<welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
  

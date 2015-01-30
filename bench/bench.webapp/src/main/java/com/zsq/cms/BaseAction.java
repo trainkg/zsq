@@ -1,4 +1,4 @@
-package com.zsq.cms.controller;
+package com.zsq.cms;
 
 /**
  *  系统控制器ROOT
