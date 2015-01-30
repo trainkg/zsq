@@ -3,8 +3,8 @@
  */
 dojoConfig = {
     has: {
-        "dojo-firebug": true,
-        "dojo-debug-messages": true
+        "dojo-firebug": false,
+        "dojo-debug-messages": false
     },
     baseUrl:'/bench',
     parseOnload:false,
@@ -15,7 +15,10 @@ dojoConfig = {
        {name:'dijit',location:"zsq/dojo/dijit"},
        {name:'dojox',location:"zsq/dojo/dojox"},
        // 扩展Widget命名空间
-       {name:'extend',location:"zsq/extend"}
+       {name:'extend',location:"zsq/extend"},
+       // 将bootstrap3.0 的响应式JS DOJO实现
+       {name:'bt',location:"zsq/bootstrap"},
+       {name:'zsq',location:"statics/js"},
     ],
     waitSeconds:5,
     map:{
@@ -23,5 +26,5 @@ dojoConfig = {
     		ready:'dojo/domReady'
     	}
     },
-    cacheBust:true
+    cacheBust:false
 };
