@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DOJO TEMPLATE</title>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="zsq/dojo/dijit/themes/claro/claro.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,6 +15,14 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    	html, body {
+		    width: 100%;
+		    height: 100%;
+		    margin: 0;
+		    overflow:hidden;
+		}
+    </style>
   </head>
   <body id="_zsq_site" class="claro">
   	<!-- <nav class="navbar navbar-default" role="navigation">
@@ -26,8 +34,6 @@
 	    </div>
 	  </div>
 	</nav> -->
-   	<div class="section row" id="_ZSQ_CONTENT">
-   	</div>
    	<script src="${_CP}/statics/js/config.js"></script>
     <script src="${_CP}/zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
    	<script type="text/javascript">

@@ -18,13 +18,21 @@ dojoConfig = {
        {name:'extend',location:"zsq/extend"},
        // 将bootstrap3.0 的响应式JS DOJO实现
        {name:'bt',location:"zsq/bootstrap"},
-       {name:'zsq',location:"statics/js"},
+       {name:'zsq',location:"statics/js"}
     ],
+    paths:{
+      'underscore' : 'zsq/underscore.16.0',
+    },
     waitSeconds:5,
     map:{
     	"*":{
     		ready:'dojo/domReady'
     	}
     },
-    cacheBust:false
+    cacheBust:false,
+    shim:{
+    	'underscore' : {
+			exports : '_'
+		},
+    }
 };
