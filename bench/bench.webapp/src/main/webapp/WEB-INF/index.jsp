@@ -21,19 +21,11 @@
 		    height: 100%;
 		    margin: 0;
 		    overflow:hidden;
+		    font-size: 13px;
 		}
     </style>
   </head>
   <body id="_zsq_site" class="claro">
-  	<!-- <nav class="navbar navbar-default" role="navigation">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	      	 ZSQ系统管理
-	      </a>
-	    </div>
-	  </div>
-	</nav> -->
    	<script src="${_CP}/statics/js/config.js"></script>
     <script src="${_CP}/zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
    	<script type="text/javascript">
