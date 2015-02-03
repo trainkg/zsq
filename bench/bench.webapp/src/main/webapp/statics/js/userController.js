@@ -13,22 +13,18 @@ define([
         "underscore",
         "dojo/domReady!"
        ],function(declare,BorderContainer,AccordionContainer,AccordionPane,ContentPane,dom,_){
-	return declare(ContentPane,{
+	return declare(BorderContainer,{
 		//
-		ctx:null,
 		constructor:function(){
-			var bc = new BorderContainer({
-				 style: "height: 100%; width: 100%;"
-			});
-			this.initContent();
-			this.ctx = bc;
+			//this.initContent();
 		},
 		/**
 		 * 初始化content 信息
 		 */
-		initContent:function(){
-			/*var left = new AccordionContainer({
-				region:'left'
+		postCreate:function(){
+			var left = new AccordionContainer({
+				region:'left',
+				style:"width:200px;"
 			});
 			left.addChild(new AccordionPane({
 				title:"PAGE #1"
@@ -38,8 +34,13 @@ define([
 			}));
 			left.addChild(new AccordionPane({
 				title:"PAGE #3"
-			}));*/
-			//this.content.addChild(left);
+			}));
+			
+		    this.addChild(left);
+		    this.addChild(new ContentPane({
+		    	region:"center",
+		    	content:"this is testddddddddddd"
+		    }));
 		}
 	});
 });

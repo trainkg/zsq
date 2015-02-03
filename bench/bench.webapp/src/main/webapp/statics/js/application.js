@@ -80,33 +80,11 @@ define([
 		    });
 		    tab.addChild(cp4);
 		    
-		    var cp5 = new BorderContainer({
-		    	title:"首页5",
+		    var cp5 = new useWidget({
+		    	title:"首页51",
 		        closable:true,
 		        selected:true
 		    });
-		    
-		    var left = new AccordionContainer({
-				region:'left',
-				style:"width:200px;"
-			});
-			left.addChild(new AccordionPane({
-				title:"PAGE #1"
-			}));
-			left.addChild(new AccordionPane({
-				title:"PAGE #2"
-			}));
-			left.addChild(new AccordionPane({
-				title:"PAGE #3"
-			}));
-			
-			
-		    cp5.addChild(left);
-		    
-		    cp5.addChild(new ContentPane({
-		    	region:"center",
-		    	content:"this is test"
-		    }));
 		    tab.addChild(cp5);
 		    
 		    bc.addChild(tab);
