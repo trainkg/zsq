@@ -21,7 +21,7 @@ dojoConfig = {
        {name:'zsq',location:"statics/js"}
     ],
     paths:{
-      'underscore' : 'zsq/underscore.16.0',
+      'underscore' : 'zsq/underscore.16.0'
     },
     waitSeconds:5,
     map:{
@@ -33,6 +33,6 @@ dojoConfig = {
     shim:{
     	'underscore' : {
 			exports : '_'
-		},
+		}
     }
 };
