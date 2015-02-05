@@ -22,6 +22,7 @@
 		    margin: 0;
 		    overflow:hidden;
 		    font-size: 13px;
+		    background-color: #B0C4DE;
 		}
     </style>
   </head>

@@ -32,9 +32,9 @@
 						<property name="failOnEmptyBeans" value="false" />
 					</bean>
 				</property>
-				<property name="supportedMediaTypes">
+				<!-- <property name="supportedMediaTypes">
 					<value>text/plain;charset=UTF-8</value>
-				</property>
+				</property> -->
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
