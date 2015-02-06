@@ -15,8 +15,17 @@ define([
         "dojo/store/Memory", 
         "dojo/store/Cache", 
         "dojo/store/Observable",
+        'gridx/Grid',
+        'gridx/core/model/cache/Sync',
+        "gridx/modules/IndirectSelect",
+		"gridx/modules/extendedSelect/Row",
+		"gridx/modules/ColumnResizer",
+		"gridx/modules/RowHeader",
+		"gridx/modules/Pagination",
+		"gridx/modules/pagination/PaginationBar",
+		"gridx/modules/VirtualVScroller",
         "dojo/domReady!"
-       ],function(declare,BorderContainer,AccordionContainer,AccordionPane,ContentPane,dom,_,JsonRest, Memory, Cache, Observable){
+       ],function(declare,BorderContainer,AccordionContainer,AccordionPane,ContentPane,dom,_,JsonRest, Memory, Cache, Observable,Grid,Gcache){
 	return declare(BorderContainer,{
 		//
 		constructor:function(){
@@ -27,28 +36,109 @@ define([
 		 */
 		postCreate:function(){
 			
-			var userStore = new JsonRest({target:"ru/user"});
+			var userStore = new JsonRest({target:"ru/user/"});
 			var cacheStore = new Memory({});
 			var inventoryStore = new Cache(userStore, cacheStore);
 		
 			var left = new AccordionContainer({
 				region:'left',
-				style:"width:200px;"
+				style:"width:300px;"
 			});
 			
-			var user = inventoryStore.query("/1");
-			var user1 = inventoryStore.query("/1");
-			user.forEach(function(item){
-				left.addChild(new AccordionPane({
-					title:item.name
-				}));
+			var user = inventoryStore.get("1");
+			user.then(function(items){
+				_.each(items,function(item){
+					left.addChild(new AccordionPane({
+						title:item.name
+					}));
+				})
 			});
 			
 		    this.addChild(left);
-		    this.addChild(new ContentPane({
+		    
+		    var columns = [
+               {field: 'id', name: 'Identity'},
+               {field: 'title', name: 'Title'},
+               {field: 'artist', name: 'Artist'}
+            ];
+		    
+		    var store = new Memory({
+		        data: [
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'},
+		            {id: 1, title: 'Hey There', artist: 'Bette Midler'},
+		            {id: 2, title: 'Love or Confusion', artist: 'Jimi Hendrix'},
+		            {id: 3, title: 'Sugar Street', artist: 'Andy Narell'}
+		        ]
+		    });
+		    
+		    var grid = new Grid({
 		    	region:"center",
-		    	content:"this is testddddddddddd"
-		    }));
+		        cacheClass: Gcache,
+		        store: store,
+		        structure: columns,
+		        modules: [
+					"gridx/modules/IndirectSelect",
+					"gridx/modules/extendedSelect/Row",
+					"gridx/modules/ColumnResizer",
+					"gridx/modules/RowHeader",
+					"gridx/modules/Pagination",
+					"gridx/modules/pagination/PaginationBar",
+					"gridx/modules/VirtualVScroller"
+	      		]
+		    }); 
+		    
+		    this.addChild(grid);
+		    
 		    inventoryStore.remove(1);
 		    inventoryStore.put({'id':1,name:"张珊"});
 		    console.log(inventoryStore.add({name:"李四"}));

@@ -9,6 +9,7 @@
     <title>DOJO TEMPLATE</title>
     <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="zsq/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="zsq/dojo/gridx/resources/claro/Gridx.css" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

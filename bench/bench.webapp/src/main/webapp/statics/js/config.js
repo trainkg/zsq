@@ -1,12 +1,13 @@
 /**
  *  DOJO 全局配置
  */
+var baseUrl = location.pathname.replace(/\/[^/]+$/, '/../../../../js/');
 dojoConfig = {
     has: {
         "dojo-firebug": false,
         "dojo-debug-messages": false
     },
-    baseUrl:'/bench',
+    baseUrl:baseUrl,
     parseOnload:false,
     packages:[
        {name:'test',location:"statics/js/test"},
@@ -14,11 +15,15 @@ dojoConfig = {
        {name:'dojo',location:"zsq/dojo/dojo"},
        {name:'dijit',location:"zsq/dojo/dijit"},
        {name:'dojox',location:"zsq/dojo/dojox"},
+       {name:'dgrid',location:"zsq/dojo/dgrid"},
        // 扩展Widget命名空间
        {name:'extend',location:"zsq/extend"},
        // 将bootstrap3.0 的响应式JS DOJO实现
        {name:'bt',location:"zsq/bootstrap"},
-       {name:'zsq',location:"statics/js"}
+       {name:'zsq',location:"statics/js"},
+       {name:'xstyle',location:'zsq/xstyle'},
+       {name:'put-selector',location:'zsq/put-selector'},
+       {name:'gridx',location:'zsq/dojo/gridx'}
     ],
     paths:{
       'underscore' : 'zsq/underscore.16.0'
