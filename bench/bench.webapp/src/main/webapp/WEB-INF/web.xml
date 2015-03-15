@@ -14,7 +14,7 @@
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
 		<!-- develop, production -->
-		<param-value>develop</param-value>
+		<param-value>develop</param-value>	
 	</context-param>
 	
 	<listener>

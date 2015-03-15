@@ -40,5 +40,10 @@
 		<artifactId>bench.cms</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>user-flag</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
 </project>
