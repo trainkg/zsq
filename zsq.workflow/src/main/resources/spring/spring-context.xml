@@ -36,17 +36,20 @@
 	    <property name="databaseSchemaUpdate" value="true" />
 	    <property name="jobExecutorActivate" value="false" />
 	    <property name="deploymentResources" value="classpath*:com/zsq/workflow/test/*.bpmn" />
-	    <!-- <property name="beans">
-	    	<map>
-	    		<entry key="printer" value-ref="baseService"/>
-	    	</map>
-	    </property> -->
+	    <property name="mailServerHost" value="smtp.163.com"></property>
+	    <property name="mailServerUsername" value="peculiar.1"></property>
+	    <property name="mailServerPassword" value="$zhu2046$"></property>
+	    <property name="eventListeners">
+	      <list>
+	         <bean class="com.zsq.workflow.test.MyEventListener"/>
+	      </list>
+	    </property>
 	</bean>
 
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
 		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
 	</bean>
-
+	
 	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
 	<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
 	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />

@@ -15,7 +15,9 @@ public class JavaServiceTask implements JavaDelegate {
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
+		System.out.println("JavaServiceTask execution is "+ execution);
 		System.out.println("[执行] JAVA service task. " + name.getExpressionText());
+		execution.setVariable("r2", "test return info defined in process");
 	}
 
 	public void setName(Expression name) {
