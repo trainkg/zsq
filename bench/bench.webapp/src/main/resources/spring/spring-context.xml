@@ -22,4 +22,7 @@
 	</context:component-scan>
 	
 	<context:annotation-config />
+	
+	<!-- 基本服务器配置 -->
+	<import resource="classpath:mbase/springApplicationContext.xml"/>
 </beans>

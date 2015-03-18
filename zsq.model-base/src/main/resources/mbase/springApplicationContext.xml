@@ -4,17 +4,30 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- 读取配置文件中配置 -->
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:config.properties</value>
-				<value>classpath:repositoryConfig.properties</value>
-				<value>classpath:weibo-config.properties</value>
+				<value>classpath:etc/config.properties</value>
 			</list>
 		</property>
 	</bean>
 	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.connection.driver_class}"></property>
+        <property name="url" value="${jdbc.connection.url}"></property>
+        <property name="username" value="${jdbc.connection.username}"></property>
+        <property name="password" value="${jdbc.connection.password}"></property>
+        <property name="maxActive" value="${dbcp.maxActive}"></property>
+        <property name="maxIdle" value="${dbcp.maxIdle}"></property>
+        <property name="maxWait" value="${dbcp.maxWait}"></property>
+        <property name="defaultAutoCommit" value="${dbcp.autoCommot}"></property>
+    </bean>
 	
-
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
 </beans>
