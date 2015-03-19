@@ -1,6 +1,6 @@
-package com.zsq.user.dao;
+package com.zsq.euser.dao;
 
-import com.zsq.user.entity.Role;
+import com.zsq.euser.entity1.Role;
 
 public interface RoleMapper {
     int deleteByPrimaryKey(String id);

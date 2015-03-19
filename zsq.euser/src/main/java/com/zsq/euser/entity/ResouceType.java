@@ -1,4 +1,4 @@
-/**
+/*
  * Author:  peculiar.1@163.com
  * Copyright (c) 2004-2015 All Rights Reserved.
  */
