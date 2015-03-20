@@ -1,6 +1,6 @@
 package com.zsq.euser.dao;
 
-import com.zsq.euser.entity1.UserPermission;
+import com.zsq.euser.entity.UserPermission;
 
 public interface UserPermissionMapper {
     int deleteByPrimaryKey(String id);

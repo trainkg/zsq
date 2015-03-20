@@ -1,5 +1,10 @@
-package com.zsq.euser.entity1;
+package com.zsq.euser.entity;
 
+/**
+ * 用户基本模块基本字典信息 
+ * @author peculiar.1@163.com
+ * @version $ID: UserDict.java, V1.0.0 2015年3月20日 下午8:38:30 $
+ */
 public class UserDict {
     private String id;
 

@@ -1,4 +1,4 @@
-package com.zsq.euser.entity1;
+package com.zsq.euser.entity;
 
 public class UserRole {
     private String id;

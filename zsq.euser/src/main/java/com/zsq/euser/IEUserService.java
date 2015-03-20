@@ -115,5 +115,12 @@ public abstract interface IEUserService {
 	 * @return
 	 */
 	public List<Role> getHasRousourceRoles(String resourceId);
+	
+	/**
+	 * 根据resourceid 加载对应的资源信息
+	 * @param rid 资源ID
+	 * @return
+	 */
+	public Resource getResourceById(String rid);
 
 }

@@ -20,7 +20,7 @@
         </javaTypeResolver>
  
         <!-- targetProject:自动生成代码的位置 -->
-        <javaModelGenerator targetPackage="com.zsq.euser.entity1" targetProject="..\zsq.euser\src\main\java">
+        <javaModelGenerator targetPackage="com.zsq.euser.entity" targetProject="..\zsq.euser\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaModelGenerator>
  
@@ -37,7 +37,7 @@
             enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="zq_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="zq_permission" domainObjectName="Permission" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <table tableName="zq_permission" domainObjectName="Resource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="zq_user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false"></table>

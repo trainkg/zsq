@@ -1,6 +1,6 @@
 package com.zsq.euser.dao;
 
-import com.zsq.euser.entity1.UserDict;
+import com.zsq.euser.entity.UserDict;
 
 public interface UserDictMapper {
     int deleteByPrimaryKey(String id);

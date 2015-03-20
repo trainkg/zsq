@@ -1,6 +1,6 @@
 package com.zsq.euser.dao;
 
-import com.zsq.euser.entity1.User;
+import com.zsq.euser.entity.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(String id);

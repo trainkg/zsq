@@ -17,7 +17,7 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
         
     <!-- 对于对象的扫描  一次性包办所有 -->
-	<context:component-scan base-package="com.zsq.user,com.zsq.cms,com.zsq.th3">
+	<context:component-scan base-package="com.zsq.user,com.zsq.euser,com.com.zsq.cms,com.zsq.th3">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	

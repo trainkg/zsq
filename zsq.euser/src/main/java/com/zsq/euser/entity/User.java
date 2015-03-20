@@ -1,158 +1,118 @@
-/**
- * Author:  peculiar.1@163.com
- * Copyright (c) 2004-2015 All Rights Reserved.
- */
 package com.zsq.euser.entity;
 
-import java.security.Principal;
+import java.util.List;
 
 /**
- * 
- * 
+ * 基本人员信息 
  * @author peculiar.1@163.com
- * @version $ID: User.java, V1.0.0 2015年3月14日 下午9:19:05 $
+ * @version $ID: User.java, V1.0.0 2015年3月20日 下午8:37:28 $
  */
-public class User implements Principal {
-
+public class User {
+	
 	private String id;
 
-	private String userName;
+	private String username;
 
 	private String password;
 
-	private int sex;
-
-	private String phone;
+	private Short sex;
 
 	private String email;
 
-	private String address;
+	private String homeaddress;
+
+	private String phone;
+
+	private int status;
 
 	/**
-	 * 用户状态 不采用枚举定义 限制扩展性
+	 * 用户拥有的资源列表
 	 */
-	private Integer status;
+	private List<Resource> userResource;
 
 	/**
-	 * @return the id
+	 * 用户拥有的角色列表
 	 */
+	private List<Role> roles;
+
 	public String getId() {
 		return id;
 	}
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	/**
-	 * @param userName
-	 *            the userName to set
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	/**
-	 * @return the password
-	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * @param password
-	 *            the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * @return the sex
-	 */
-	public int getSex() {
+	public Short getSex() {
 		return sex;
 	}
 
-	/**
-	 * @param sex
-	 *            the sex to set
-	 */
-	public void setSex(int sex) {
+	public void setSex(Short sex) {
 		this.sex = sex;
 	}
 
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return phone;
-	}
-
-	/**
-	 * @param phone
-	 *            the phone to set
-	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
 
-	/**
-	 * @param email
-	 *            the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
+	public String getHomeaddress() {
+		return homeaddress;
 	}
 
-	/**
-	 * @param address
-	 *            the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
+	public void setHomeaddress(String homeaddress) {
+		this.homeaddress = homeaddress;
 	}
 
-	public Integer getStatus() {
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.security.Principal#getName()
-	 */
-	public String getName() {
-		return getUserName();
+	public List<Resource> getUserResource() {
+		return userResource;
+	}
+
+	public void setUserResource(List<Resource> userResource) {
+		this.userResource = userResource;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }
