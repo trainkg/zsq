@@ -1,5 +1,7 @@
 package com.zsq.cms.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.zsq.cms.BaseAction;
 import com.zsq.euser.IEUserService;
 import com.zsq.euser.entity.Resource;
+import com.zsq.euser.entity.Role;
 import com.zsq.user.IUserService;
 
 /**
@@ -33,6 +36,7 @@ public class ApplicationController extends BaseAction {
 		log.info("[delete] 测试删除");
 		seUser.deleteUserById("1");
 		Resource res = seEuser.getResourceById("1");
+		List<Role> list = seEuser.getUserRoles("1");
 		return "index";
 	}
 	

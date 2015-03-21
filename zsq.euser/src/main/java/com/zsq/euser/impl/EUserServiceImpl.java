@@ -4,6 +4,8 @@
  */
 package com.zsq.euser.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,34 +14,41 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.zsq.euser.IEUserService;
+import com.zsq.euser.UserEvent;
 import com.zsq.euser.dao.ResourceMapper;
+import com.zsq.euser.dao.RoleMapper;
 import com.zsq.euser.dao.UserMapper;
 import com.zsq.euser.dao.UserSearchVO;
 import com.zsq.euser.entity.Resource;
 import com.zsq.euser.entity.Role;
 import com.zsq.euser.entity.User;
+import com.zsq.euser.entity.UserDict;
+import com.zsq.modelbase.ActionEvent.EventAction;
+import com.zsq.modelbase.EventService;
 
 /**
  * 基本用户信息实现
+ * 
  * @author peculiar.1@163.com
  * @version $ID: EUserServiceImpl.java, V1.0.0 2015年3月20日 下午8:06:27 $
  */
 @Service
-public class EUserServiceImpl implements IEUserService {
+public class EUserServiceImpl extends EventService implements IEUserService {
 
 	@Autowired
 	private UserMapper daoUser;
 	@Autowired
 	private ResourceMapper daoRes;
-	
+	@Autowired
+	private RoleMapper daoRole;
+
 	public User findUserById(String userId) {
 		Assert.notNull(userId);
 		return daoUser.selectByPrimaryKey(userId);
 	}
 
-	
 	public void searchUserByVO(UserSearchVO vo) {
-		
+
 	}
 
 	public List<User> getAllActiveUser() {
@@ -47,52 +56,57 @@ public class EUserServiceImpl implements IEUserService {
 	}
 
 	public Role findRoleById(String roleId) {
-		// TODO Auto-generated method stub
-		return null;
+		Assert.notNull(roleId);
+		return daoRole.selectByPrimaryKey(roleId);
 	}
 
 	public List<Role> getUserRoles(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		Assert.notNull(userId);
+		return daoRole.getUserRoles(userId);
 	}
 
 	public List<Role> getAllRoles() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoRole.getAllRoles();
 	}
 
 	public List<Resource> getAllResources() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoRes.getAllResources();
 	}
 
 	public Map<String, List<Resource>> getAllResourcesForMap() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Resource> list = getAllResources();
+		Map<String, List<Resource>> map = new HashMap<String, List<Resource>>();
+		for (Resource resource : list) {
+			UserDict type = resource.getType();
+			String tid = type.getId();
+			List<Resource> rlist = map.get(tid);
+			if (rlist == null) {
+				rlist = new ArrayList<Resource>();
+				map.put(tid, rlist);
+			}
+			rlist.add(resource);
+		}
+		return map;
 	}
 
 	public List<Resource> getRoleResources(String roleId) {
-		// TODO Auto-generated method stub
-		return null;
+		Assert.notNull(roleId);
+		return daoRes.getRoleResources(roleId);
 	}
 
 	public List<Resource> getUserResources(String userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public List<Resource> getRoleResources(String[] roleIds) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Map<String, List<Resource>> getRolesResources(String[] roleids) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public List<Role> getHasRousourceRoles(String resourceId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -100,6 +114,10 @@ public class EUserServiceImpl implements IEUserService {
 		Assert.notNull(rid);
 		return daoRes.selectByPrimaryKey(rid);
 	}
-	
 
+	public void addUser(User user) {
+		daoUser.insert(user);
+		publisher.publishEvent(new UserEvent(this,user,EventAction.ADD));
+	}
+	
 }

@@ -72,7 +72,7 @@ public abstract interface IEUserService {
 	/**
 	 * 获取系统所有的资源列表信息 按照资源类型划分
 	 * 
-	 * @return
+	 * @return key-value key:类型ID,value:对应的资源列表
 	 */
 	public Map<String, List<Resource>> getAllResourcesForMap();
 
@@ -122,5 +122,10 @@ public abstract interface IEUserService {
 	 * @return
 	 */
 	public Resource getResourceById(String rid);
-
+	
+	/**
+	 * 添加用户
+	 * @param user
+	 */
+	public void addUser(User user);
 }

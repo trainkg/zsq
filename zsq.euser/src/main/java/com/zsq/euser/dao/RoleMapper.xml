@@ -55,4 +55,13 @@
     set group_name = #{groupName,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+  
+  <select id="getUserRoles" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select a.* from zq_role a left join zq_user_role b on a.id = b.role_id where b.user_id = #{id};
+  </select>
+  
+  <select id="getAllRoles" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from zq_user_role;
+  </select>
+  
 </mapper>
