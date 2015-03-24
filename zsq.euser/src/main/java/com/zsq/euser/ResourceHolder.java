@@ -10,7 +10,7 @@ import com.zsq.euser.entity.Resource;
 import com.zsq.euser.entity.User;
 
 /**
- * 
+ * 管理系统内部人员具有的资源列表,用于集中管理权限相关信息
  * 
  * @author peculiar.1@163.com
  * @version $ID: ResourceHolder.java, V1.0.0 2015年3月21日 下午7:10:19 $

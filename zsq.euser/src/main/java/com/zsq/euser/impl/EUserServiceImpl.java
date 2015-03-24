@@ -11,6 +11,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import com.zsq.euser.IEUserService;
@@ -115,6 +117,7 @@ public class EUserServiceImpl extends EventService implements IEUserService {
 		return daoRes.selectByPrimaryKey(rid);
 	}
 
+	@Transactional(readOnly=false,propagation=Propagation.REQUIRED)
 	public void addUser(User user) {
 		daoUser.insert(user);
 		publisher.publishEvent(new UserEvent(this,user,EventAction.ADD));

@@ -79,7 +79,7 @@
       dict_id = #{dictId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="getAllResources" parameterType="BaseResultMap">
+  <select id="getAllResources" resultMap="BaseResultMap">
   	select <include refid="Base_Column_List" /> from zq_permission
   </select>
 </mapper>

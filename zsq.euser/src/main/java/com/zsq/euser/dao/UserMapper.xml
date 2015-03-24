@@ -24,13 +24,16 @@
     delete from zq_user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.zsq.euser.entity.User">
-    insert into zq_user (id, username, password, 
-      sex, email, homeAddress, 
-      phone)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+  <insert id="insert" parameterType="com.zsq.euser.entity.User" useGeneratedKeys="true">
+  	<selectKey keyProperty="id" resultType="String" order="BEFORE">
+        select REPLACE(UUID(),'-','')
+    </selectKey>
+    insert into zq_user (id,username, password, 
+      sex, email, homeAddress,phone,status)
+    values (#{id},#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=SMALLINT}, #{email,jdbcType=VARCHAR}, #{homeaddress,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}),  #{status,jdbcType=SMALLINT})
+      #{phone,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT})
+    
   </insert>
   <insert id="insertSelective" parameterType="com.zsq.euser.entity.User">
     insert into zq_user

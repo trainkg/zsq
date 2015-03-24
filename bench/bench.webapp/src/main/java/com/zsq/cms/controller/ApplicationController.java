@@ -13,6 +13,7 @@ import com.zsq.cms.BaseAction;
 import com.zsq.euser.IEUserService;
 import com.zsq.euser.entity.Resource;
 import com.zsq.euser.entity.Role;
+import com.zsq.euser.entity.User;
 import com.zsq.user.IUserService;
 
 /**
@@ -37,6 +38,10 @@ public class ApplicationController extends BaseAction {
 		seUser.deleteUserById("1");
 		Resource res = seEuser.getResourceById("1");
 		List<Role> list = seEuser.getUserRoles("1");
+		User user = new User();
+		user.setUsername("朱元宇");
+		user.setPassword("123456");
+		seEuser.addUser(user);
 		return "index";
 	}
 	

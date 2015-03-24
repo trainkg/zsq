@@ -48,6 +48,7 @@ create table zq_user
    email                varchar(100),
    homeAddress          varchar(200),
    phone                varchar(20),
+   sex                  status comment '用户状态列表 默认 0:正常',
    primary key (id)
 );
 
