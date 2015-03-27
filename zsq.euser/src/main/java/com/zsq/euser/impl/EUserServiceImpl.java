@@ -117,10 +117,15 @@ public class EUserServiceImpl extends EventService implements IEUserService {
 		return daoRes.selectByPrimaryKey(rid);
 	}
 
-	@Transactional(readOnly=false,propagation=Propagation.REQUIRED)
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public void addUser(User user) {
 		daoUser.insert(user);
-		publisher.publishEvent(new UserEvent(this,user,EventAction.ADD));
+		publisher.publishEvent(new UserEvent(this, user, EventAction.ADD));
 	}
 	
+	public User findUserByLoginName(String loginName) {
+		Assert.notNull(loginName);
+		return daoUser.findUserByLoginName(loginName);
+	}
+
 }

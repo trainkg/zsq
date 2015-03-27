@@ -13,15 +13,16 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<bean id="shiroRealm" class="com.sugon.steering.user.ShiroRealm">
-		<property name="cachingEnabled" value="true"></property>
-	</bean>
-
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 	
-	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
-        <property name="cacheManagerConfigFile" value="classpath:spring/ehcache-shiro.xml" />  
+	<bean id="cacheManager" class="com.zsq.shiro.J2CacheManager">  
+        <!-- <property name="cacheManagerConfigFile" value="classpath:spring/ehcache-shiro.xml" /> -->  
     </bean>
+    
+	<bean id="shiroRealm" class="com.zsq.euser.shiro.ShiroRealm">
+		<property name="cachingEnabled" value="true"></property>
+		<property name="cacheManager" ref="cacheManager"></property>
+	</bean>
     
 	<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
         <property name="sessionValidationInterval" value="1800000"/>
@@ -29,8 +30,9 @@
     </bean>
 	
 	<!-- 会话DAO -->
-    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
+    <bean id="sessionDAO" class="com.zsq.shiro.J2cacheSessionDao">
+        <!-- <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/> -->
+        <property name="cacheManager" ref="cacheManager"></property>
     </bean>
     
     <!-- 会话Cookie模板 -->
@@ -43,14 +45,14 @@
 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="globalSessionTimeout" value="1800000"/>
         <property name="deleteInvalidSessions" value="true"/>
-        <property name="sessionValidationSchedulerEnabled" value="false"/>
-        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
+        <!-- <property name="sessionValidationSchedulerEnabled" value="false"/>
+        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/> -->
         <property name="sessionDAO" ref="sessionDAO"/>
         <property name="sessionIdCookieEnabled" value="true"/>
         <property name="sessionIdCookie" ref="sessionIdCookie"/>
     </bean>
     
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+	<bean id="securityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
 		<property name="realm" ref="shiroRealm" />
 		<property name="cacheManager" ref="shiroEhcacheManager"></property>
 		<property name="sessionManager" ref="sessionManager"></property>

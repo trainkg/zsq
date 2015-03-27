@@ -25,6 +25,7 @@
 	
 	<!-- 基本服务器配置 -->
 	<import resource="classpath:mbase/springApplicationContext.xml"/>
+	<import resource="classpath:spring/springcontext-shiro.xml"/>
 	
 	<beans profile="develop">
 		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">

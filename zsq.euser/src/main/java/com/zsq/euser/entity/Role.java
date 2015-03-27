@@ -3,7 +3,7 @@ package com.zsq.euser.entity;
 public class Role {
     private String id;
 
-    private String groupName;
+    private String name;
 
     public String getId() {
         return id;
@@ -13,11 +13,13 @@ public class Role {
         this.id = id;
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+
+   
 }

@@ -128,4 +128,10 @@
       status = #{status,jdbcType=SMALLINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="findUserByLoginName" resultMap="BaseResultMap" parameterType="java.lang.String">
+ 	 select 
+    <include refid="Base_Column_List" />
+    from zq_user
+    where name = #{loginName,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -34,6 +34,10 @@ public class J2cache implements Cache<Object, CacheObject> {
 	private CacheChannel channel;
 	public static final String DEFALT_REGION = "#ZSQ_SHIRO#";
 	private String region = DEFALT_REGION;
+	
+	public J2cache(CacheChannel channel) {
+		this.channel = channel;
+	}
 
 	public CacheChannel getChannel() {
 		return channel;
@@ -81,7 +85,9 @@ public class J2cache implements Cache<Object, CacheObject> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public Set<Object> keys() {
-		// TODO Auto-generated method stub
+		if (log.isTraceEnabled()) {
+            log.trace("获取所有的SHIRO KEY");
+        }
 		try {
 			List keys = channel.keys(getRegion());
 			if (!CollectionUtils.isEmpty(keys)) {

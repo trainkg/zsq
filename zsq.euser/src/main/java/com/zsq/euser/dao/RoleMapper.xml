@@ -3,10 +3,10 @@
 <mapper namespace="com.zsq.euser.dao.RoleMapper">
   <resultMap id="BaseResultMap" type="com.zsq.euser.entity.Role">
     <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, group_name
+    ID, name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -19,8 +19,8 @@
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.zsq.euser.entity.Role">
-    insert into zq_role (ID, group_name)
-    values (#{id,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR})
+    insert into zq_role (ID, name)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zsq.euser.entity.Role">
     insert into zq_role
@@ -28,31 +28,31 @@
       <if test="id != null">
         ID,
       </if>
-      <if test="groupName != null">
-        group_name,
+      <if test="name != null">
+        name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.zsq.euser.entity.Role">
     update zq_role
     <set>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zsq.euser.entity.Role">
     update zq_role
-    set group_name = #{groupName,jdbcType=VARCHAR}
+    set name = #{name,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
   

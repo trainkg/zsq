@@ -121,5 +121,10 @@
 			<artifactId>zsq.euser</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.zsq</groupId>
+			<artifactId>shiro-j2cahce</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
 </project>

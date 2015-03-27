@@ -3,15 +3,21 @@ package com.zsq.euser.entity;
 import java.util.List;
 
 /**
- * 基本人员信息 
+ * 基本人员信息
+ * 
  * @author peculiar.1@163.com
  * @version $ID: User.java, V1.0.0 2015年3月20日 下午8:37:28 $
  */
 public class User {
-	
+
 	private String id;
 
 	private String username;
+
+	/**
+	 * 用户登陆名使用 全局唯一
+	 */
+	private String loginName;
 
 	private String password;
 
@@ -34,6 +40,14 @@ public class User {
 	 * 用户拥有的角色列表
 	 */
 	private List<Role> roles;
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
 
 	public String getId() {
 		return id;

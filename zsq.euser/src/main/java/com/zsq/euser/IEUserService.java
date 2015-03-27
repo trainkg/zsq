@@ -128,4 +128,11 @@ public abstract interface IEUserService {
 	 * @param user
 	 */
 	public void addUser(User user);
+	
+	/**
+	 * 根据登录名查询用户信息
+	 * @param loginName
+	 * @return
+	 */
+	public User findUserByLoginName(String loginName);
 }
