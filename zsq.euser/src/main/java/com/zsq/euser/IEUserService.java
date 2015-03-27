@@ -135,4 +135,5 @@ public abstract interface IEUserService {
 	 * @return
 	 */
 	public User findUserByLoginName(String loginName);
+	
 }
