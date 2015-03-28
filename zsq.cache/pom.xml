@@ -10,6 +10,7 @@
   </modules>
   <properties>
   	<slf4j.version>1.7.5</slf4j.version>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
   	<dependency>
@@ -29,7 +30,6 @@
   		<url>http://maven.oschina.net/content/groups/public/</url>
   	</repository>
   </repositories>
-  
   <profiles>
 	<profile>
 		<id>JDK1.7</id>

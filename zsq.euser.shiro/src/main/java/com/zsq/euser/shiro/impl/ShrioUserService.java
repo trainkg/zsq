@@ -1,4 +1,4 @@
-package IShrioUserService;
+package com.zsq.euser.shiro.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
