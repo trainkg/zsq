@@ -12,5 +12,10 @@
 		<artifactId>shiro-core</artifactId>
 		<version>1.2.3</version>
 	</dependency>
+	<dependency>
+	    <groupId>redis.clients</groupId>
+	    <artifactId>jedis</artifactId>
+	    <version>2.2.1</version>
+	</dependency>
   </dependencies>
 </project>

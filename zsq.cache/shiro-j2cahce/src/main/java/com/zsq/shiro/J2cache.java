@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
  * @param <K>
  * @param <V>
  */
-public class J2cache implements Cache<Object, CacheObject> {
+public class J2cache implements Cache<Object, Object> {
 
 	/**
 	 * J2cache channel
@@ -56,18 +56,21 @@ public class J2cache implements Cache<Object, CacheObject> {
 	}
 
 	@Override
-	public CacheObject get(Object key) throws CacheException {
-		return channel.get(getRegion(), key);
+	public Object get(Object key) throws CacheException {
+		CacheObject co = channel.get(getRegion(), key);
+		System.out.println("get from cache =="+co.getValue());
+		return co.getValue();
 	}
 
 	@Override
-	public CacheObject put(Object key, CacheObject value) throws CacheException {
+	public Object put(Object key, Object value) throws CacheException {
 		channel.set(getRegion(), key, value);
+		System.out.println("put into  cache =="+ value);
 		return value;
 	}
 
 	@Override
-	public CacheObject remove(Object key) throws CacheException {
+	public Object remove(Object key) throws CacheException {
 		channel.evict(getRegion(), key);
 		return null;
 	}
@@ -101,14 +104,14 @@ public class J2cache implements Cache<Object, CacheObject> {
 	}
 
 	@Override
-	public Collection<CacheObject> values() {
+	public Collection<Object> values() {
 		if (log.isTraceEnabled()) {
             log.trace("获取所有的值");
         }
 		try {
 			Set<Object> keys = keys();
 			if(!CollectionUtils.isEmpty(keys)){
-				List<CacheObject> list = new ArrayList<CacheObject>();
+				List<Object> list = new ArrayList<Object>();
 				for (Object key : keys) {
 					list.add(get(key));
 				}

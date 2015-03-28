@@ -9,9 +9,17 @@ import java.util.List;
  * @version $ID: User.java, V1.0.0 2015年3月20日 下午8:37:28 $
  */
 public class User {
-
+	
+	public User() {
+	}
+	
+	public User(String name,String password){
+		this.username = name;
+		this.password = password;
+	}
+	
 	private String id;
-
+	
 	private String username;
 
 	/**

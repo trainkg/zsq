@@ -15,25 +15,28 @@ public class J2cacheSessionDao extends CachingSessionDAO {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
+	
 	@Override
 	protected void doUpdate(Session session) {
-		log.debug("update shiro session");
+		log.info("update shiro session {}",session);
 	}
 
 	@Override
 	protected void doDelete(Session session) {
-		log.debug("delete shiro session");
+		log.info("delete shiro session {}",session);
 	}
 
 	@Override
 	protected Serializable doCreate(Session session) {
-		log.debug("create shiro session");
-		return null;
+		Serializable sessionId = generateSessionId(session);
+		log.info("create shiro session {}", session);
+		assignSessionId(session, sessionId);
+		return sessionId;
 	}
 
 	@Override
 	protected Session doReadSession(Serializable sessionId) {
-		log.debug("read shiro session");
+		log.debug("read shiro session id {}",sessionId);
 		return null;
 	}
 

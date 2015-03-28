@@ -27,6 +27,9 @@
 	<import resource="classpath:mbase/springApplicationContext.xml"/>
 	<import resource="classpath:spring/springcontext-shiro.xml"/>
 	
+	<!-- 配置用户密码加密方式 -->
+	<bean class="com.zsq.euser.MD5EncryptService" id="passwordencry"></bean>
+	
 	<beans profile="develop">
 		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
 			<jdbc:script location="classpath:euser/euser-init.sql"/>

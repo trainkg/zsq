@@ -21,7 +21,8 @@
     
 	<bean id="shiroRealm" class="com.zsq.euser.shiro.ShiroRealm">
 		<property name="cachingEnabled" value="true"></property>
-		<property name="cacheManager" ref="cacheManager"></property>
+		<!-- 无需设定 只需要在security中设定的时候 会自动的设置到香港的realm中 -->
+		<!-- <property name="cacheManager" ref="cacheManager"></property> -->
 	</bean>
     
 	<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
@@ -30,14 +31,14 @@
     </bean>
 	
 	<!-- 会话DAO -->
-    <bean id="sessionDAO" class="com.zsq.shiro.J2cacheSessionDao">
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
         <!-- <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/> -->
         <property name="cacheManager" ref="cacheManager"></property>
     </bean>
     
     <!-- 会话Cookie模板 -->
     <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="sid"/>
+        <constructor-arg value="zsqid"/>
         <property name="httpOnly" value="true"/>
         <property name="maxAge" value="-1"/>
     </bean>
@@ -52,7 +53,7 @@
         <property name="sessionIdCookie" ref="sessionIdCookie"/>
     </bean>
     
-	<bean id="securityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="shiroRealm" />
 		<property name="cacheManager" ref="cacheManager"></property>
 		<property name="sessionManager" ref="sessionManager"></property>
@@ -79,33 +80,7 @@
 			<value> 
 				/statics/** = anon
 				/getDutyScopeInfo = anon
-				<!--/getSchoolInfoRecord = anon-->
-				<!--/getRecordList = anon-->
-				<!--/scopeList = anon -->
-				<!--/addRecord = anon-->
-				<!--/saveSchoolInfoRecord = anon-->
-				/input-login = anon
-				/login = anon
-				/user-verification = anon
-				/user-check = anon
-				/Kaptcha.jpg = anon
-				/user-setting = anon
-				/ = anon
-				/quick/** = anon
-				/dldResouceFile = anon
-				/logout = authc
-				/school = authc,roles["管理员"]
-				/expert = authc,roles["管理员"]
-				/parents = authc,roles["管理员"]
-				/leader = authc,roles["管理员"]
-				/resource = authc,roles["管理员"]
-				/nomManage = authc,roles["管理员"]
-				/deleteResourceById = authc,roles["管理员"]
-				/nom/list = authc,roles["管理员"]
-				/ep/clps = authc,roles["专家"]
-				/dm/goSchoolInfo = authc,roles["材料申报者"]
-				/dm/declareIndex = authc,roles["材料申报者"]
-				/** = authc
+				/** = anon
 			</value> 
 		</property>
 	</bean>

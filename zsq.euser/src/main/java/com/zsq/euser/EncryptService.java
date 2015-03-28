@@ -11,5 +11,5 @@ public interface EncryptService<O,T> {
 	 * @param object
 	 * @return
 	 */
-	public T Encrypt(O object);
+	public T encrypt(O object);
 }

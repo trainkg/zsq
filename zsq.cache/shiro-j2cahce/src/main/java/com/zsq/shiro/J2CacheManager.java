@@ -21,12 +21,19 @@ public class J2CacheManager implements CacheManager,Initializable,Destroyable{
 	
 	private J2cache cache;
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public J2cache getCache(String name) throws CacheException {
 		if(log.isTraceEnabled()){
 			log.trace("get cache name is {}", name);
 		}
+		System.out.println("===============================================");
+		System.out.println("===============================================");
+		System.out.println("===============================================");
+		System.out.println("=============get cahe name "+name+"============");
+		System.out.println("===============================================");
+		System.out.println("===============================================");
+		System.out.println("===============================================");
+		System.out.println("===============================================");
 		if(cache == null){
 			cache = new J2cache(CacheChannel.getInstance());
 		}
@@ -35,7 +42,9 @@ public class J2CacheManager implements CacheManager,Initializable,Destroyable{
 
 	@Override
 	public void destroy() throws Exception {
+		System.out.println("============================ close cacleManager -------------------- ");
 		log.info("distory J2CacheManager");
+		cache.getChannel().close();
 	}
 
 	@Override
