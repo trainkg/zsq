@@ -4,4 +4,7 @@
   <artifactId>zsq.file</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <modules>
+  	<module>zsq.file.core</module>
+  </modules>
 </project>
