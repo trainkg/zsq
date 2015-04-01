@@ -12,4 +12,8 @@
   		<type>pom</type>
   	</dependency>
   </dependencies>
+  <modules>
+  	<module>scheduler.core</module>
+  	<module>scheduler.web</module>
+  </modules>
 </project>

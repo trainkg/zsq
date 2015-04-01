@@ -6,6 +6,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>zsq.file.core</module>
+  	<module>file.web</module>
   </modules>
   <dependencies>
   	<dependency>
