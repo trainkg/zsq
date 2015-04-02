@@ -79,7 +79,8 @@
 		<property name="filterChainDefinitions"> 
 			<value> 
 				/statics/** = anon
-				/getDutyScopeInfo = anon
+				/zsq/** = anon
+				/resources/** = anon
 				/** = anon
 			</value> 
 		</property>

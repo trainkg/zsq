@@ -13,4 +13,8 @@
   		<type>pom.lastUpdated</type>
   	</dependency>
   </dependencies>
+  <modules>
+  	<module>message.core</module>
+  	<module>message.web</module>
+  </modules>
 </project>

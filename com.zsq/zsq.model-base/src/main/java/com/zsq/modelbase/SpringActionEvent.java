@@ -7,7 +7,7 @@ package com.zsq.modelbase;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * 
+ * 面向操作的事件超类定义
  * 
  * @author peculiar.1@163.com
  * @version $ID: SpringActionEvent.java, V1.0.0 2015年3月21日 下午8:16:06 $

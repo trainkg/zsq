@@ -13,5 +13,6 @@
   	<module>zsq.message</module>
   	<module>zsq.scheduler</module>
   	<module>zsq.workflow</module>
+  	<module>zsq.template</module>
   </modules>
 </project>
