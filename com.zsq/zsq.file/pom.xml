@@ -13,7 +13,6 @@
   		<groupId>com.zsq</groupId>
   		<artifactId>cms.zsq</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-  		<type>pom.lastUpdated</type>
   	</dependency>
   </dependencies>
 </project>

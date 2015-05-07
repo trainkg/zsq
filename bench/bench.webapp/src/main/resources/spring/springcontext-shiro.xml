@@ -67,7 +67,13 @@
 	    <property name="kickoutUrl" value="/?kickout=1"/>  
 	</bean>  -->
 	
-	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+	<bean id="shiroFilter" class="com.zsq.euser.shiro.ShiroExcludingURIFilterFactoryBean">
+		<property name="excludePath">
+			<set>
+				<value>/zsq/**</value>
+				<value>/statics/*</value>
+			</set>
+		</property>
 		<property name="loginUrl" value="/"></property>
 		<property name="unauthorizedUrl" value="/"></property>
 		<property name="securityManager" ref="securityManager" />

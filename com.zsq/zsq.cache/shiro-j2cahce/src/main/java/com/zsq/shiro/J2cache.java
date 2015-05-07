@@ -58,7 +58,7 @@ public class J2cache implements Cache<Object, Object> {
 	@Override
 	public Object get(Object key) throws CacheException {
 		CacheObject co = channel.get(getRegion(), key);
-		System.out.println("get from cache =="+co.getValue());
+		System.out.println(key+" :: get from cache =="+co.getValue());
 		return co.getValue();
 	}
 
