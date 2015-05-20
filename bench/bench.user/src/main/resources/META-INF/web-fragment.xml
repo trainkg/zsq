@@ -6,7 +6,7 @@
 	<name>user_frag</name>
 	<servlet>
 		<servlet-name>test-servlet</servlet-name>
-		<servlet-class>com.zsq.frag.user.TestServlet</servlet-class>
+		<servlet-class>com.zsq.user.resource.TestServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>test-servlet</servlet-name>

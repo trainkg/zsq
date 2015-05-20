@@ -1,26 +1,20 @@
 package com.zsq.user.internal;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import com.zsq.core.spring.EventService;
-import com.zsq.euser.dao.UserMapper;
+import com.zsq.euser.impl.EUserServiceImpl;
 import com.zsq.user.IUserService;
 import com.zsq.user.UserDeleteEvent;
 
 /**
- * 内部实现 
- * 
+ * User 业务接口 
  * @author zhuyy
  */
 @Service
 @Transactional
-public class UserServiceImpl extends EventService implements IUserService{
-	
-	@Autowired
-	private UserMapper daoUser;
+public class UserServiceImpl extends EUserServiceImpl implements IUserService{
 	
 	@Override
 	public void deleteUserById(String id) {

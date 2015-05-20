@@ -19,12 +19,15 @@
     <!-- 对于对象的扫描  一次性包办所有 -->
 	<context:component-scan base-package="com.zsq.user,com.zsq.euser,com.com.zsq.cms,com.zsq.th3">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<!-- 当覆盖已有的人员的时候需要将BASEservice从扫描路径中踢出 -->
+		<context:exclude-filter type="regex" expression="com.zsq.euser.impl.EUserServiceImpl"/>
 	</context:component-scan>
 	
 	<context:annotation-config />
 	
 	<!-- 基本服务器配置 -->
-	<import resource="classpath:mbase/springApplicationContext.xml"/>
+	<import resource="classpath:mbase/mybatis-springcontext.xml"/>
+	<!-- 加载SHIRO配置 -->
 	<import resource="classpath:spring/springcontext-shiro.xml"/>
 	
 	<!-- 配置用户密码加密方式 -->

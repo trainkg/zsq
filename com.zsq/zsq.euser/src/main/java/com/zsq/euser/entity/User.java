@@ -1,5 +1,7 @@
 package com.zsq.euser.entity;
 
+import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -8,18 +10,38 @@ import java.util.List;
  * @author peculiar.1@163.com
  * @version $ID: User.java, V1.0.0 2015年3月20日 下午8:37:28 $
  */
-public class User {
-	
-	public User() {
+public class User implements Principal {
+
+	/*
+	 * 用户状态
+	 */
+	enum UserStatus {
+		// 激活,删除,锁定,未激活
+		ACTIVE, REMOVED, LOCKED, UNACTIVE
 	}
 	
-	public User(String name,String password){
+	/**
+	 * 用户性别
+	 * @author zhuyy
+	 *
+	 */
+	enum Sex{
+		MAN,FEMALE,OTHER
+	}
+
+	public User() {
+	}
+
+	public User(String name, String password) {
 		this.username = name;
 		this.password = password;
 	}
-	
+
 	private String id;
-	
+
+	/**
+	 * 用户别名
+	 */
 	private String username;
 
 	/**
@@ -27,17 +49,40 @@ public class User {
 	 */
 	private String loginName;
 
+	/**
+	 * 密码
+	 */
 	private String password;
 
-	private Short sex;
+	/**
+	 * 性别
+	 */
+	private Sex sex;
 
+	/**
+	 * 邮箱
+	 */
 	private String email;
 
+	/**
+	 * 地址
+	 */
 	private String homeaddress;
 
+	/**
+	 * 电话
+	 */
 	private String phone;
 
-	private int status;
+	/**
+	 * 用户状态
+	 */
+	private UserStatus status;
+
+	/**
+	 * 创建时间
+	 */
+	private Date createDate;
 
 	/**
 	 * 用户拥有的资源列表
@@ -81,11 +126,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Short getSex() {
+	public Sex getSex() {
 		return sex;
 	}
 
-	public void setSex(Short sex) {
+	public void setSex(Sex sex) {
 		this.sex = sex;
 	}
 
@@ -113,11 +158,11 @@ public class User {
 		this.phone = phone;
 	}
 
-	public int getStatus() {
+	public UserStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(UserStatus status) {
 		this.status = status;
 	}
 
@@ -135,6 +180,18 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getName() {
+		return getId();
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 }

@@ -1,10 +1,21 @@
 package com.zsq.euser.entity;
 
+/**
+ * 系统资源 
+ * @author zhuyy
+ */
 public class Resource {
+	
 	private String id;
-
+	
+	/**
+	 * 资源名称
+	 */
 	private String name;
 
+	/**
+	 * 资源编号
+	 */
 	private String code;
 
 	private UserDict type;

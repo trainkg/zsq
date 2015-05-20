@@ -2,7 +2,7 @@
  * Author:  peculiar.1@163.com
  * Copyright (c) 2004-2015 All Rights Reserved.
  */
-package com.zsq.frag.user;
+package com.zsq.user.resource;
 
 import java.io.IOException;
 

@@ -38,11 +38,11 @@ import com.zsq.modelbase.EventService;
 public class EUserServiceImpl extends EventService implements IEUserService {
 
 	@Autowired
-	private UserMapper daoUser;
+	protected UserMapper daoUser;
 	@Autowired
-	private ResourceMapper daoRes;
+	protected ResourceMapper daoRes;
 	@Autowired
-	private RoleMapper daoRole;
+	protected RoleMapper daoRole;
 
 	public User findUserById(String userId) {
 		Assert.notNull(userId);
