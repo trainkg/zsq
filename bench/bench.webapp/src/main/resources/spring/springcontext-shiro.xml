@@ -14,14 +14,17 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
-	
-	<bean id="cacheManager" class="com.zsq.shiro.J2CacheManager">  
+	<!-- J2cache manager -->
+	<!-- <bean id="cacheManager" class="com.zsq.shiro.J2CacheManager">  
+    </bean> -->
+    
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
         <!-- <property name="cacheManagerConfigFile" value="classpath:spring/ehcache-shiro.xml" /> -->  
     </bean>
     
 	<bean id="shiroRealm" class="com.zsq.euser.shiro.ShiroRealm">
 		<property name="cachingEnabled" value="true"></property>
-		<!-- 无需设定 只需要在security中设定的时候 会自动的设置到香港的realm中 -->
+		<!-- 无需设定 只需要在security中设定的时候 会自动的设置到相关的realm中 -->
 		<!-- <property name="cacheManager" ref="cacheManager"></property> -->
 	</bean>
     
