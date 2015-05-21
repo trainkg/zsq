@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -31,10 +30,11 @@ import com.zsq.modelbase.EventService;
 /**
  * 基本用户信息实现
  * 
+ * 如果项目中只需要使用基础USER模块, 那么需要在在spring的配置文件中声明该BEAN
+ * 
  * @author peculiar.1@163.com
  * @version $ID: EUserServiceImpl.java, V1.0.0 2015年3月20日 下午8:06:27 $
  */
-@Service
 public class EUserServiceImpl extends EventService implements IEUserService {
 
 	@Autowired

@@ -39,6 +39,6 @@
 	
 	<!-- 扫描mybatis mapp文件 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-	   <property name="basePackage" value="com.zsq.euser.dao" />  
+	   <property name="basePackage" value="com.zsq.euser.dao,com.zsq.om.dao" />  
 	</bean>  
 </beans>

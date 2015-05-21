@@ -7,21 +7,12 @@ import com.zsq.euser.entity.User;
  * 
  * @author zhuyy
  */
-public class UserInfo {
+public class UserInfo extends User{
 	
-	private User user;
 	/**
 	 * 学位
 	 */
 	private String degree;
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public String getDegree() {
 		return degree;
