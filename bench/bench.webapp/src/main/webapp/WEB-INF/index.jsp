@@ -29,7 +29,7 @@
   </head>
   <body id="_zsq_site" class="claro">
    	<script src="${_CP}/statics/js/config.js"></script>
-    <script src="${_CP}/zsq/dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script src="//cdn.bootcss.com/dojo/1.10.4/dojo.js" data-dojo-config="async: true"></script>
    	<script type="text/javascript">
    		require(["zsq/application"],function(Application){
    			var config = {};

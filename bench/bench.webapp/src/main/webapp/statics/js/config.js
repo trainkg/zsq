@@ -12,7 +12,7 @@ dojoConfig = {
     packages:[
        {name:'test',location:"statics/js/test"},
        //dojo命名空间 由于根路径没有默认指定在dojo所在的目录
-       {name:'dojo',location:"zsq/dojo/dojo"},
+       {name:'dojo',location:"//cdn.bootcss.com/dojo/1.10.4/"},
        {name:'dijit',location:"zsq/dojo/dijit"},
        {name:'dojox',location:"zsq/dojo/dojox"},
        {name:'dgrid',location:"zsq/dojo/dgrid"},

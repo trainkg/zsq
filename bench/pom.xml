@@ -14,7 +14,7 @@
 		<module>bench.3th</module>
 		<module>bench.cms</module>
 	</modules>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -30,6 +30,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>utf-8</encoding>
 				</configuration>
 				<executions>
