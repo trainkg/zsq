@@ -6,12 +6,6 @@
   <packaging>pom</packaging>
   <description>消息中心</description>
   <dependencies>
-  	<dependency>
-  		<groupId>com.zsq</groupId>
-  		<artifactId>cms.zsq</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  		<type>pom.lastUpdated</type>
-  	</dependency>
   </dependencies>
   <modules>
   	<module>message.core</module>
