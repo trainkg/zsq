@@ -38,7 +38,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<!-- 扫描mybatis mapp文件 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
 	   <property name="basePackage" value="com.zsq.euser.dao,com.zsq.om.dao" />  
-	</bean>  
+	</bean>   -->
 </beans>
