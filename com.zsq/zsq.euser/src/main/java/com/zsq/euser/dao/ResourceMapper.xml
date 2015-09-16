@@ -5,7 +5,7 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="code" jdbcType="VARCHAR" property="code" />
-    <association column="dict_id" jdbcType="VARCHAR" property="type" fetchType="lazy" javaType="com.zsq.euser.entity.UserDict" select="com.zsq.euser.dao.UserDictMapper.selectByPrimaryKey"/>
+    <!-- <association column="dict_id" jdbcType="VARCHAR" property="type" fetchType="lazy" javaType="com.zsq.euser.entity.UserDict" select="com.zsq.euser.dao.UserDictMapper.selectByPrimaryKey"/> -->
   </resultMap>
   <sql id="Base_Column_List">
     id, name, code, dict_id
