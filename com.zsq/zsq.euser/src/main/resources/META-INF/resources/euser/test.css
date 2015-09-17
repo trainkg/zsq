@@ -1,1 +1,6 @@
-THIS IS  TEST INFO HTML CAN YOU SEE IT?????????
+.red{color:red !important;}
+.orange{color:orange !important;}
+.blue{color:blue !important;}
+.green{color:green !important;}
+.callout{padding:15px; border:1px #CCC solid; border-radius:2px; font-size:14px; line-height:1.5;}
+.callout-red{border-left:4px red solid;}
