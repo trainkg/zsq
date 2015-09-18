@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import com.zsq.euser.EncryptService;
 import com.zsq.euser.IEUserService;
 import com.zsq.euser.UserEvent;
 import com.zsq.euser.dao.ResourceMapper;
@@ -43,6 +44,8 @@ public class EUserServiceImpl extends EventService implements IEUserService {
 	protected ResourceMapper daoRes;
 	@Autowired
 	protected RoleMapper daoRole;
+	@Autowired
+	protected EncryptService<?, ?> seEncrypt;
 
 	public User findUserById(String userId) {
 		Assert.notNull(userId);

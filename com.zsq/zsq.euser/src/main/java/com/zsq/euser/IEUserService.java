@@ -125,6 +125,8 @@ public abstract interface IEUserService {
 	
 	/**
 	 * 添加用户
+	 * 
+	 * <br>会广播发出添加人员信息事件
 	 * @param user
 	 */
 	public void addUser(User user);

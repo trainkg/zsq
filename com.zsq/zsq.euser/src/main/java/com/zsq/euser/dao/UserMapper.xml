@@ -132,6 +132,6 @@
  	 select 
     <include refid="Base_Column_List" />
     from zq_user
-    where name = #{loginName,jdbcType=VARCHAR}
+    where username = #{loginName,jdbcType=VARCHAR}
   </select>
 </mapper>

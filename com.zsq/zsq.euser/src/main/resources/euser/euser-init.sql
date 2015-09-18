@@ -44,11 +44,11 @@ create table zq_user
    id                   varchar(32) not null,
    username             varchar(50) not null,
    password             varchar(200) not null,
-   sex                  smallint comment '0：男 1：女 2：其他',
+   sex                  varchar(10) not null,
    email                varchar(100),
    homeAddress          varchar(200),
    phone                varchar(20),
-   sex                  status comment '用户状态列表 默认 0:正常',
+   status               varchar(10) not null,
    primary key (id)
 );
 

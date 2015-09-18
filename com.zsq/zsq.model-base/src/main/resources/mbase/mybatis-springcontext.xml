@@ -24,6 +24,7 @@
         <property name="maxIdle" value="${dbcp.maxIdle}"></property>
         <property name="maxWait" value="${dbcp.maxWait}"></property>
         <property name="defaultAutoCommit" value="${dbcp.autoCommot}"></property>
+        <!-- <property name="validationQuery " value="select 1"></property> -->
     </bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

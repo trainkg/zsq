@@ -14,7 +14,9 @@ import java.util.Set;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -106,8 +108,16 @@ public class ShiroRealm extends AuthorizingRealm
         {
             return null;
         }
-        log.info("authToken is {}", authcToken);
         UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
+        String loginName = token.getUsername();
+       	User user = seUser.findUserByLoginName(loginName);
+       	if(user == null){
+       		throw new UnknownAccountException();
+       	}
+       	if("123".equals(user.getPassword())){
+       		throw new IncorrectCredentialsException("密码或者用户名错误");
+       	}
+        log.info("authToken is {}", authcToken);
         return new SimpleAuthenticationInfo(token.getUsername(), token.getPassword(), getName());
     }
 }
