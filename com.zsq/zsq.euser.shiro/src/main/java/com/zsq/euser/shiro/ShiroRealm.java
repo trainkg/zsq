@@ -26,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.zsq.euser.EncryptService;
 import com.zsq.euser.IEUserService;
 import com.zsq.euser.entity.Resource;
 import com.zsq.euser.entity.Role;
@@ -53,6 +54,9 @@ public class ShiroRealm extends AuthorizingRealm
     
     @ Autowired
     private IEUserService seUser;
+    
+    @Autowired
+    private EncryptService seEncrypt;
 
     /**
      * 构造器（塞入认证对象）
@@ -114,8 +118,8 @@ public class ShiroRealm extends AuthorizingRealm
        	if(user == null){
        		throw new UnknownAccountException();
        	}
-       	if("123".equals(user.getPassword())){
-       		throw new IncorrectCredentialsException("密码或者用户名错误");
+       	if(!user.getPassword().equals(seEncrypt.encrypt(new String(token.getPassword())))){
+       		throw new IncorrectCredentialsException();
        	}
         log.info("authToken is {}", authcToken);
         return new SimpleAuthenticationInfo(token.getUsername(), token.getPassword(), getName());

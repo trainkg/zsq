@@ -16,8 +16,14 @@
 	</context:component-scan>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
 	   <property name="basePackage" value="com.zsq.euser.dao" />  
-	</bean>  
-	<!-- <bean id="euserService" class="com.zsq.euser.impl.EUserServiceImpl"></bean> -->
+	</bean>
+	
+	<!-- 基础人员服务 -->
+	<!-- 
+	<bean id="euserService" class="com.zsq.euser.impl.EUserServiceImpl"></bean>
+	 -->
+	<!-- <bean id="encryptService" class="com.zsq.euser.MD5EncryptService"></bean> -->
+	
 	<beans>
 		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
 			<jdbc:script location="classpath:euser/euser-init.sql"/>

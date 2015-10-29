@@ -45,7 +45,7 @@ public class EUserServiceImpl extends EventService implements IEUserService {
 	@Autowired
 	protected RoleMapper daoRole;
 	@Autowired
-	protected EncryptService<?, ?> seEncrypt;
+	protected EncryptService seEncrypt;
 
 	public User findUserById(String userId) {
 		Assert.notNull(userId);
