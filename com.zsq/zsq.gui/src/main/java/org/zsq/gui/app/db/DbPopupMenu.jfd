@@ -1,0 +1,41 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.7.0_60" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
+			name: "this"
+			"inheritsPopupMenu": true
+			"minimumSize": new java.awt.Dimension( 182, 250 )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem1"
+				"text": "新建链接"
+				"preferredSize": new java.awt.Dimension( 140, 22 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseReleased", "menuItem1MouseReleased", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem5"
+				"text": "链接属性"
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem2"
+				"text": "删除链接"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseReleased", "menuItem2MouseReleased", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JSeparator" ) {
+				name: "separator1"
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem4"
+				"text": "菜单一"
+			} )
+			add( new FormComponent( "javax.swing.JMenuItem" ) {
+				name: "menuItem3"
+				"text": "菜单二"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 405, 300 )
+		} )
+	}
+}

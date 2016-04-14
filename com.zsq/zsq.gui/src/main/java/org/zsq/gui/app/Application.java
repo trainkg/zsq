@@ -1,11 +1,13 @@
 package org.zsq.gui.app;
 
+import java.awt.GraphicsEnvironment;
 import java.awt.Panel;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+import org.zsq.gui.app.core.ZsqContext;
 import org.zsq.gui.app.test.TEST;
 
 /**
@@ -13,11 +15,11 @@ import org.zsq.gui.app.test.TEST;
  * @author Administrator
  */
 public class Application {
-	JFrame mainFrame;
+	public static JFrame mainFrame;
 	
 	public static void main(String[] args) {
 		try {
-			lookAndFeel();
+			//lookAndFeel();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -45,6 +47,7 @@ public class Application {
 				mainFrame = new TEST();
 			}
 		});
+		ZsqContext.getInstance().initContext();
 	}
 
 	public static Application buildApplication() throws Exception {

@@ -4,15 +4,15 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) {
-			"hgap": 10
-			"vgap": 10
+			"hgap": 5
+			"vgap": 5
 		} ) {
 			name: "this"
 			"title": "测试标题信息"
-			"minimumSize": new java.awt.Dimension( 600, 600 )
+			"minimumSize": new java.awt.Dimension( 1000, 600 )
 			"visible": true
 			"iconImage": sfield com.jformdesigner.model.FormObject NULL_VALUE
-			"opacity": 0.8f
+			"defaultCloseOperation": 3
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "dialogPane"
 				"border": sfield com.jgoodies.forms.factories.Borders DIALOG

@@ -13,9 +13,10 @@ public class DBConfig {
 	
 	private String name;
 	private String host;
-	private int port;
+	private int port = 3306;
 	private String username;
 	private String password;
 	private boolean savePass;
+	
 	
 }

@@ -34,12 +34,12 @@ public class TEST extends JFrame {
 
 		//======== this ========
 		setTitle("\u6d4b\u8bd5\u6807\u9898\u4fe1\u606f");
-		setMinimumSize(new Dimension(600, 600));
+		setMinimumSize(new Dimension(1000, 600));
 		setVisible(true);
 		setIconImage(null);
-		setOpacity(0.8F);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		Container contentPane = getContentPane();
-		contentPane.setLayout(new BorderLayout(10, 10));
+		contentPane.setLayout(new BorderLayout(5, 5));
 
 		//======== dialogPane ========
 		{

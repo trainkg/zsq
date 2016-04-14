@@ -6,10 +6,13 @@ package org.zsq.gui.app.test;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.event.*;
+
 import org.jdesktop.beansbinding.*;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
+import org.zsq.gui.app.db.DbPopupMenu;
 
 /**
  * @author zhu yy
@@ -22,11 +25,32 @@ public class Panel1 extends JPanel {
 	private void list1MouseClicked(MouseEvent e) {
 		// TODO add your code here
 		System.out.println("打开数据库信息列表");
+		maybeShowPopup(e);
 	}
 
-	private void list1ValueChanged(ListSelectionEvent e) {
-		System.out.println(e.getSource());
+	private void list1MousePressed(MouseEvent e) {
+		list1.setSelectedIndex(list1.locationToIndex(e.getPoint())); //获取鼠标点击的项
+		maybeShowPopup(e);
 	}
+	
+
+	private void list1MouseReleased(MouseEvent e) {
+		maybeShowPopup(e);
+	}
+	
+	//弹出菜单
+    private void maybeShowPopup(MouseEvent e) {
+           if (e.isPopupTrigger()&&list1.getSelectedIndex()!=-1) {
+            
+            //获取选择项的值
+        	int index =  list1.getSelectedIndex();
+            Object selected = list1.getModel().getElementAt(index);
+            final JPopupMenu menu = new DbPopupMenu();
+	        menu.show(this, e.getPoint().x, e.getPoint().y);
+	        
+	        //list1.setSelectedIndex(index);
+           }
+       }
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -37,11 +61,11 @@ public class Panel1 extends JPanel {
 		//======== this ========
 
 		// JFormDesigner evaluation mark
-		setBorder(new javax.swing.border.CompoundBorder(
-			new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-				"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-				javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-				java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
+		/*setBorder(new javax.swing.border.CompoundBorder(
+				new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+					"JFormDesigner Eva11luation", javax.swing.border.TitledBorder.CENTER,
+					javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+					java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});*/
 
 		setLayout(new GridLayout());
 
@@ -80,14 +104,12 @@ public class Panel1 extends JPanel {
 			list1.setPreferredSize(new Dimension(200, 323));
 			list1.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
-					list1MouseClicked(e);
+				public void mousePressed(MouseEvent e) {
+					list1MousePressed(e);
 				}
-			});
-			list1.addListSelectionListener(new ListSelectionListener() {
 				@Override
-				public void valueChanged(ListSelectionEvent e) {
-					list1ValueChanged(e);
+				public void mouseReleased(MouseEvent e) {
+					list1MouseReleased(e);
 				}
 			});
 			scrollPane1.setViewportView(list1);
