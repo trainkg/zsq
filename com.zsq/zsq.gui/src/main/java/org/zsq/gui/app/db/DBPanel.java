@@ -1,8 +1,10 @@
 package org.zsq.gui.app.db;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import lombok.Getter;
@@ -28,6 +30,8 @@ public class DBPanel extends JPanel  {
 	public DBPanel() {
 		
 		bar = new DBMenuBar();
+		setBorder(BorderFactory.createLineBorder(Color.red,1));
+		setPreferredSize(new Dimension(200, 200));
 		add(bar);
 	}
 	

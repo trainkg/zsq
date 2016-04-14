@@ -126,6 +126,10 @@
 	        <id>projectlombok.org</id>
 	        <url>http://projectlombok.org/mavenrepo</url>
 	    </repository>
+	    <repository>
+	        <id>apache.snapshots</id>
+	        <url>http://repository.apache.org/snapshots</url>
+	    </repository>
 	</repositories>
 	
 	<profiles>

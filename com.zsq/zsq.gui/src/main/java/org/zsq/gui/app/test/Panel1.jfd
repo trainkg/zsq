@@ -1,0 +1,44 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.7.0_60" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+					"toolTipText": "这个是提示信息"
+					"model": new javax.swing.DefaultListModel {
+						addElement( "1,2" )
+						addElement( "312" )
+						addElement( "123" )
+						addElement( "123" )
+						addElement( "张三" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "历史" )
+						addElement( "测试一下长的信息" )
+						addElement( "测试一下长的信息" )
+						addElement( "测试一下长的信息" )
+						addElement( "测试一下长的信息" )
+						addElement( "测试一下长的信息" )
+					}
+					"preferredSize": new java.awt.Dimension( 200, 323 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "list1MouseClicked", true ) )
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "list1ValueChanged", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 25 )
+			"size": new java.awt.Dimension( 355, 290 )
+		} )
+	}
+}

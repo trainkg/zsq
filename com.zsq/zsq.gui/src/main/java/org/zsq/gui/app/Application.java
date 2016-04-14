@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+import org.zsq.gui.app.test.TEST;
 
 /**
  * 
@@ -40,7 +41,8 @@ public class Application {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				mainFrame = new MainFrame();
+				//mainFrame = new MainFrame();
+				mainFrame = new TEST();
 			}
 		});
 	}

@@ -1,4 +1,4 @@
-/**
+ /**
  * 
  */
 package org.zsq.gui.app;
@@ -65,6 +65,7 @@ public class QdJFrame extends JFrame implements ActionListener {
 		// 调用方法
 		addComponent();
 		setLayout(g);
+		setResizable(true);
 		submit.addActionListener(this);
 	}
 
