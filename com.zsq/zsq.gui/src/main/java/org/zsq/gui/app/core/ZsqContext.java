@@ -31,7 +31,7 @@ public class ZsqContext {
 	@Getter @Setter
 	String driverClass = "com.mysql.jdbc.Driver";
 	@Getter @Setter
-	String dbURL = "jdbc:mysql://localhost:3306?autoReconnect=true";
+	String dbURL = "jdbc:mysql://localhost:3306/mysql?autoReconnect=true";
 	
 	
 	private static ZsqContext single=null;  

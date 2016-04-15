@@ -1,13 +1,13 @@
 package org.zsq.gui.app;
 
-import java.awt.GraphicsEnvironment;
-import java.awt.Panel;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 import org.zsq.gui.app.core.ZsqContext;
+import org.zsq.gui.app.db.service.DBmetaService;
 import org.zsq.gui.app.test.TEST;
 
 /**
@@ -39,7 +39,8 @@ public class Application {
 		org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 	}
 
-	private void start() {
+	private void start() throws Exception {
+		ZsqContext.getInstance().initContext();
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -47,7 +48,9 @@ public class Application {
 				mainFrame = new TEST();
 			}
 		});
-		ZsqContext.getInstance().initContext();
+		System.out.println(DBmetaService.getTables());
+		DBmetaService.changeDB("jxkh");
+		System.out.println(DBmetaService.getTables());
 	}
 
 	public static Application buildApplication() throws Exception {
