@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import com.jgoodies.forms.factories.*;
 import com.jgoodies.forms.layout.*;
+import org.zsq.gui.app.db.*;
 
 /**
  * @author zhu yy
@@ -23,7 +24,8 @@ public class TEST extends JFrame {
 		// Generated using JFormDesigner Evaluation license - zhu yy
 		dialogPane = new JPanel();
 		contentPanel = new JPanel();
-		panel1 = new Panel1();
+		panel3 = new JPanel();
+		panel2 = new DBConfigPanel();
 		label1 = new JLabel();
 		textField1 = new JTextField();
 		textField2 = new JTextField();
@@ -58,9 +60,12 @@ public class TEST extends JFrame {
 			{
 				contentPanel.setLayout(new BorderLayout());
 
-				//---- panel1 ----
-				panel1.setForeground(Color.orange);
-				contentPanel.add(panel1, BorderLayout.WEST);
+				//======== panel3 ========
+				{
+					panel3.setLayout(new BorderLayout());
+					panel3.add(panel2, BorderLayout.CENTER);
+				}
+				contentPanel.add(panel3, BorderLayout.WEST);
 
 				//---- label1 ----
 				label1.setText("\u8fd9\u4e2a\u662f\u5934\u90e8");
@@ -107,7 +112,8 @@ public class TEST extends JFrame {
 	// Generated using JFormDesigner Evaluation license - zhu yy
 	private JPanel dialogPane;
 	private JPanel contentPanel;
-	private Panel1 panel1;
+	private JPanel panel3;
+	private DBConfigPanel panel2;
 	private JLabel label1;
 	private JTextField textField1;
 	private JTextField textField2;

@@ -27,7 +27,7 @@ public class ZsqContext {
 	@Getter @Setter
 	String dbUserName = "root";
 	@Getter @Setter
-	String dbPassword = "123456";
+	String dbPassword = "a123456";
 	@Getter @Setter
 	String driverClass = "com.mysql.jdbc.Driver";
 	@Getter @Setter

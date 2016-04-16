@@ -45,12 +45,12 @@ public class Application {
 			@Override
 			public void run() {
 				//mainFrame = new MainFrame();
-				mainFrame = new TEST();
+				mainFrame = new AppFrame();
 			}
 		});
 		System.out.println(DBmetaService.getTables());
-		DBmetaService.changeDB("jxkh");
-		System.out.println(DBmetaService.getTables());
+//		DBmetaService.changeDB("jxkh");
+//		System.out.println(DBmetaService.getTables());
 	}
 
 	public static Application buildApplication() throws Exception {

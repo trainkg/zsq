@@ -1,0 +1,22 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_77" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JList" ) {
+				name: "list1"
+				auxiliary() {
+					"JavaCodeGenerator.preInitCode": "loadDBListModal();"
+					"JavaCodeGenerator.postInitCode": "initListInfo();"
+					"JavaCodeGenerator.postCreateCode": "//postCreation();"
+					"JavaCodeGenerator.preCreateCode": "//preCreation();"
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

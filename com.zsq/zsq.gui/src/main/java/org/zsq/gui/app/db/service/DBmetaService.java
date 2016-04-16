@@ -41,6 +41,10 @@ public class DBmetaService {
 		}
 	}
 	
+	/**
+	 * 切换数据库
+	 * @param name
+	 */
 	public static void changeDB(String name){
 		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
 		try {
@@ -54,6 +58,7 @@ public class DBmetaService {
 			throw new RuntimeException(e);
 		}
 	}
+	
 	
 	
 }
