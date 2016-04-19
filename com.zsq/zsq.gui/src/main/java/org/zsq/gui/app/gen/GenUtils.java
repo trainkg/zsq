@@ -1,5 +1,7 @@
 package org.zsq.gui.app.gen;
 
+import org.zsq.gui.app.db.ddl.TableDDLInfo;
+
 /**
  * 生成文件工具类
  * 
@@ -10,7 +12,7 @@ package org.zsq.gui.app.gen;
 public class GenUtils {
 	public static GenContext context;
 	
-	public static void genrator(TableGenConfig config){
+	public static void genrator(TableDDLInfo config){
 		context.genrator(config);
 	}
 	

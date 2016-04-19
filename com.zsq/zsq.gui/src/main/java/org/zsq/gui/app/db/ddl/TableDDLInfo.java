@@ -1,4 +1,7 @@
-package org.zsq.gui.app.gen;
+package org.zsq.gui.app.db.ddl;
+
+import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,18 +20,31 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class TableGenConfig {
+public class TableDDLInfo {
 
 	/**
-	 * JSON格式 
+	 * 支持将字段描述采用JSON形式直接定义
 	 */
-	private String commit;
-	
+	private Map<String,String> commit;
+	private String tableSchema;
+	private String tableCollation;
 	private String schema;
 	private String tableName;
 	
 	public String getModelName(){
 		return null;
 	}
-	
+    
+    private List<ConstraintDDLInfo> primaryInfos;
+    private List<ConstraintDDLInfo> foreignInfos; 
+    private List<ColumnDDLInfo> 	columnInfos;
+    
+    
+	public void setColumnInfos(List<ColumnDDLInfo> 	columnInfos){
+		this.columnInfos = columnInfos;
+		for (ColumnDDLInfo columnDDLInfo : columnInfos) {
+			columnDDLInfo.setTableInfo(this);
+		}
+	}
+
 }

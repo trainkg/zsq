@@ -1,5 +1,5 @@
 ${pojo.getPackageDeclaration()}
-// Generated ${date} by Hibernate Tools ${version}
+// Generated ${date} by zsq ${version}
 
 <#assign classbody>
 <#assign declarationName = pojo.importType(pojo.getDeclarationName())>

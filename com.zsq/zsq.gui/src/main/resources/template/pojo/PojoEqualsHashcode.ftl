@@ -1,4 +1,5 @@
-<#if pojo.needsEqualsHashCode() && !clazz.superclass?exists>   public boolean equals(Object other) {
+<#if pojo.needsEqualsHashCode() && !clazz.superclass?exists>   
+  public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof ${pojo.getDeclarationName()}) ) return false;

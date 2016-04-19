@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import org.zsq.gui.app.db.ddl.TableDDLInfo;
+
 /**
  * 生成文件上下文控制，管理全局配置
  * 
@@ -25,7 +27,7 @@ public class GenContext {
 	@Getter @Setter
 	private List<Genarator> gens;
 	
-    protected void genrator(TableGenConfig config2) {
+    protected void genrator(TableDDLInfo config2) {
 		if(gens != null && !gens.isEmpty()){
 			for (Genarator gen : gens) {
 				gen.genaratorIfNeed(this, config2);

@@ -1,4 +1,4 @@
-package org.zsq.gui.app.gen;
+package org.zsq.gui.app.db.ddl;
 
 import java.sql.Types;
 import java.util.Map;
@@ -18,7 +18,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ColumnConfig {
+public class ColumnDDLInfo {
 
 	/**
 	 * 支持将字段描述采用JSON形式直接定义
@@ -32,7 +32,5 @@ public class ColumnConfig {
 	private Types type;
     private int length;
     
-    
-     
-	 
+    private TableDDLInfo tableInfo;
 }
