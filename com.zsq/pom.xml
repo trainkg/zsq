@@ -15,6 +15,7 @@
   	<module>zsq.workflow</module>
   	<module>zsq.template</module>
   	<module>zsq.gui</module>
+  	<module>zsq.platform</module>
   </modules>
   
   <build>
