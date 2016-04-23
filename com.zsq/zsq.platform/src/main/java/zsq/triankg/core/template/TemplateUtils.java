@@ -8,4 +8,6 @@ package zsq.triankg.core.template;
  */
 public class TemplateUtils {
 
+	
+	
 }

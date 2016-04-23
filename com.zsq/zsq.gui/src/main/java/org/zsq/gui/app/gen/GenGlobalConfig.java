@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 生成文件全局配置
+ * 生成文件全局配置, 目前思想， 采用maven默认的搜寻路径
  * 
  * 
  * @author peculiar.1@163.com
@@ -17,7 +17,18 @@ public class GenGlobalConfig {
 	/**
 	 * 项目基础目录
 	 */
-	String basePath = "";
+	private String basePath;
 	
+	private String company;
+	private String projectName;
+	
+	/**
+	 * 模块路径管理
+	 */
+	public ModelManager manager;
+	
+	public GenGlobalConfig(String basePath) {
+		manager = new MavenModelManager(basePath);
+	}
 	
 }

@@ -21,6 +21,8 @@ import org.apache.commons.dbutils.QueryRunner;
 @Slf4j
 public class ZsqContext {
 	
+	public static final String ZSQ_GUI_NAMESPACE = "http://www.zsq.com/gui";
+	
 	@Getter
 	BasicDataSource ds;
 	

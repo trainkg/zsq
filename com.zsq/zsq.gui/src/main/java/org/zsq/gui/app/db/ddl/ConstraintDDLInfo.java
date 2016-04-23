@@ -1,5 +1,8 @@
 package org.zsq.gui.app.db.ddl;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +16,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ConstraintDDLInfo {
 
 	public static final String PARIMARY = "PRIMARY KEY";
@@ -22,5 +26,5 @@ public class ConstraintDDLInfo {
 	private String constraintType;
 	private String columnName;
 	private String refTableName;
-	
+	private String ordinalPosition;
 }

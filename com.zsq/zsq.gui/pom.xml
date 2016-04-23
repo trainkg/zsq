@@ -35,6 +35,11 @@
 	    <artifactId>freemarker</artifactId>
 	    <version>2.3.23</version>
 	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>zsq.platform</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
   <build>
   	<plugins>

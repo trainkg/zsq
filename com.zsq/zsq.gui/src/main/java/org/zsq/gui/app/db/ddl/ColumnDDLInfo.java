@@ -1,7 +1,8 @@
 package org.zsq.gui.app.db.ddl;
 
-import java.sql.Types;
-import java.util.Map;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,19 +19,33 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ColumnDDLInfo {
+@XmlAccessorType(XmlAccessType.NONE)
+public class ColumnDDLInfo{
 
 	/**
 	 * 支持将字段描述采用JSON形式直接定义
 	 */
-	private Map<String,String> colCmtMap;
+	@XmlElement
+	private String colCmt;
+	@XmlElement
 	private String tableSchema;
+	@XmlElement
 	private String tableName;
-	private String name;
+	@XmlElement
+	private String columnName;
+	@XmlElement
 	private String columnDefault;
-	private boolean nullable;
-	private Types type;
-    private int length;
+	@XmlElement
+	private boolean isNullable;
+	@XmlElement
+	private String dataType;
+	@XmlElement
+    private int characterMaximumLength;
+	@XmlElement
+    private int numericPrecision;
+	@XmlElement
+    private String columnType;
     
     private TableDDLInfo tableInfo;
+
 }

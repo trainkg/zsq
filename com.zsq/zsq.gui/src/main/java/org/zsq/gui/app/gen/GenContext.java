@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import org.zsq.gui.app.db.ddl.TableDDLInfo;
 
+import zsq.triankg.core.template.TemplateContext;
+
 /**
  * 生成文件上下文控制，管理全局配置
  * 
@@ -20,6 +22,9 @@ public class GenContext {
 	
 	@Getter
 	private GenGlobalConfig config;
+	
+	@Getter @Setter
+	private TemplateContext templateContext;
 	
 	/**
 	 * 生效的生成器
@@ -34,6 +39,4 @@ public class GenContext {
 			}
 		}
 	}
-	
-	
 }
