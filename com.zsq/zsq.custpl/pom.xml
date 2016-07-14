@@ -9,4 +9,11 @@
   <packaging>war</packaging>
   <name>定制化平台</name>
   <description>定制化平台-业务定制化平台</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>model-base</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

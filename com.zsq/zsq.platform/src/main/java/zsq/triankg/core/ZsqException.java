@@ -16,9 +16,6 @@ public class ZsqException extends RuntimeException {
 	public ZsqException() {
 		super();
 	}
-	public ZsqException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
-	}
 	public ZsqException(String msg, Throwable arg1) {
 		super(msg, arg1);
 	}
@@ -28,10 +25,6 @@ public class ZsqException extends RuntimeException {
 	
 	public ZsqException(String code) {
 		super();
-		this.code = code;
-	}
-	public ZsqException(String code,String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
 		this.code = code;
 	}
 	public ZsqException(String code,String msg, Throwable arg1) {

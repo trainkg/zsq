@@ -32,9 +32,6 @@
 						<property name="failOnEmptyBeans" value="false" />
 					</bean>
 				</property>
-				<!-- <property name="supportedMediaTypes">
-					<value>text/plain;charset=UTF-8</value>
-				</property> -->
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
@@ -55,6 +52,7 @@
 	</bean>
 
 	<mvc:resources location="/statics/" mapping="/statics/**"/>
+	<mvc:resources location="/zui/" mapping="/zui/**"/>
 	
 	<mvc:default-servlet-handler />
 	

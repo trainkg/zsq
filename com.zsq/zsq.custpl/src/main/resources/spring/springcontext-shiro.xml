@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- J2cache manager -->
+	<!-- <bean id="cacheManager" class="com.zsq.shiro.J2CacheManager">  
+    </bean> -->
+    
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">  
+        <!-- <property name="cacheManagerConfigFile" value="classpath:spring/ehcache-shiro.xml" /> -->  
+    </bean>
+    
+	<bean id="shiroRealm" class="com.zsq.euser.shiro.ShiroRealm">
+		<property name="cachingEnabled" value="true"></property>
+		<!-- 无需设定 只需要在security中设定的时候 会自动的设置到相关的realm中 -->
+		<!-- <property name="cacheManager" ref="cacheManager"></property> -->
+	</bean>
+    
+	<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
+        <property name="sessionValidationInterval" value="1800000"/>
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+	
+	<!-- 会话DAO -->
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <!-- <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/> -->
+        <property name="cacheManager" ref="cacheManager"></property>
+    </bean>
+    
+    <!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="zsqid"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="-1"/>
+    </bean>
+    
+	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="globalSessionTimeout" value="1800000"/>
+        <property name="deleteInvalidSessions" value="true"/>
+        <!-- <property name="sessionValidationSchedulerEnabled" value="false"/>
+        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/> -->
+        <property name="sessionDAO" ref="sessionDAO"/>
+        <property name="sessionIdCookieEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    </bean>
+    
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroRealm" />
+		<property name="cacheManager" ref="cacheManager"></property>
+		<property name="sessionManager" ref="sessionManager"></property>
+	</bean>
+	
+	<!-- <bean id="kickoutSessionControlFilter" class="com.sugon.edu.filter.KickoutSessionControlFilter">  
+	    <property name="cacheManager" ref="shiroEhcacheManager"/>  
+	    <property name="sessionManager" ref="sessionManager"/>  
+	    <property name="kickoutAfter" value="false"/>  
+	    <property name="maxSession" value="1"/>  
+	    <property name="kickoutUrl" value="/?kickout=1"/>  
+	</bean>  -->
+	
+	<bean id="shiroFilter" class="com.zsq.euser.shiro.ShiroExcludingURIFilterFactoryBean">
+		<property name="excludePath">
+			<set>
+				<value>/zsq/**</value>
+				<value>/statics/*</value>
+			</set>
+		</property>
+		<property name="loginUrl" value="/"></property>
+		<property name="unauthorizedUrl" value="/"></property>
+		<property name="securityManager" ref="securityManager" />
+		<property name="filters">
+			<util:map>
+				<!-- <entry key="kickout" value-ref="kickoutSessionControlFilter"></entry> -->
+			</util:map>
+		</property>
+		<property name="filterChainDefinitions"> 
+			<value> 
+				/statics/** = anon
+				/zsq/** = anon
+				/resources/** = anon
+				/** = anon
+			</value> 
+		</property>
+	</bean>
+	
+</beans>
