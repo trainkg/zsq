@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>zsq.gui</artifactId>
   <dependencies>
-  	<dependency>
+  	<!-- <dependency>
   		<groupId>org.beautyeye</groupId>
   		<artifactId>gui</artifactId>
   		<scope>system</scope>
   		<type>jar</type>
   		<version>1.0.0</version>
   		<systemPath>${basedir}/beautyeye_lnf.jar</systemPath>
-  	</dependency>
+  	</dependency> -->
   	<dependency>
   		<groupId>commons-fileupload</groupId>
   		<artifactId>commons-fileupload</artifactId>
