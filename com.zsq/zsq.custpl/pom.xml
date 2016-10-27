@@ -15,5 +15,15 @@
   		<artifactId>model-base</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>zsq.gui</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>jcl-over-slf4j</artifactId>
+  		<version>1.7.5</version>
+  	</dependency>
   </dependencies>
 </project>
