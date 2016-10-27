@@ -6,6 +6,7 @@ velocity.log
 **.project
 **.classpath
 **.settings
+**.log
 *velocity.log*
 *.idea/
 *.iml
