@@ -17,6 +17,6 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
     
     <!-- 加载模块XML -->
-    <import resource="classpath:config/*-context.xml"/>
+    <!-- <import resource="classpath:config/*-context.xml"/> -->
 	<context:annotation-config />
 </beans>
