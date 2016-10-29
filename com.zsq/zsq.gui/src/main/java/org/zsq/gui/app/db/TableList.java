@@ -19,6 +19,7 @@ import org.zsq.gui.app.db.service.DBmetaService;
 /**
  * @author zhu yy
  */
+@Deprecated
 public class TableList extends JPanel {
 	
 	String 			database;
@@ -29,7 +30,7 @@ public class TableList extends JPanel {
 	}
 	
 	private void preLoadTables(){
-		tables = DBmetaService.getTables();
+		//tables = DBmetaService.getTables();
 	}
 	
 	private void initTables(){

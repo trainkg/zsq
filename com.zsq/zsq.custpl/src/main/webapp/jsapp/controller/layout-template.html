@@ -1,0 +1,42 @@
+<div id="appl-layout" class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north',split:false" class="p-north">
+		<div class="s-title">
+			<div title="支持IE9+">自动化开发平台（0.0.1-SNAPSHOT）</div>
+		</div>    
+    </div>
+    <div data-options="region:'south',title:'信息',split:true" class="p-south"></div>
+    <div data-options="region:'east',title:'帮助栏',split:true" class="p-east"></div>
+    <div data-options="region:'west',title:'导航条',split:true" class="p-west">
+		<div class="easyui-panel" data-options="border:false" style="padding: 5px">
+			<ul class="easyui-tree" id="nav-tree">
+				<li>
+					<span>功能导航</span>
+					<ul>
+						<li data-options="attributes:{view:'view/config/globalConfigView'}">全局配置</li>
+						<li data-options="attributes:{view:'view/model/modelListView'}">模型管理</li>
+						<li data-options="attributes:{view:'view/model/modelListView'}">流程管理</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+    <div data-options="region:'center'" class="p-center">
+		<div class="easyui-tabs" id="s-tabs" style="width: auto;height: 100%">
+			<div title="欢迎页面" data-options="closable:false"
+				style="padding: 10px">
+			<pre>
+			平台设计原则：
+			
+			前提：
+			1. 统一的技术结局方案
+			2. 良好的灵活的解耦设定
+			3. 强规范，有了规范之后我们才能针对规范做快速开发
+			
+			
+			随着模块化设计更加的普遍性,针对模块内部资源|服务提供一个开放式的定义平台, 采用事件驱动模型进行模块之间解耦，保证模块内业务尽量低耦合的原则下进行一些
+			功能的快速开发	
+			</pre>
+			</div>
+		</div>
+	</div>
+</div>

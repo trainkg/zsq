@@ -50,6 +50,11 @@
 		<artifactId>jackson-annotations</artifactId>
 		<version>2.2.3</version>
 	</dependency>
+	<dependency>
+		<groupId>com.zsq</groupId>
+		<artifactId>model-base</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
   <build>
   	<plugins>

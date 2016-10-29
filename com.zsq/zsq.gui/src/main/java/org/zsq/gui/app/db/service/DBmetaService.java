@@ -5,13 +5,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.lang3.StringUtils;
-import org.zsq.gui.app.core.ZsqContext;
 import org.zsq.gui.app.db.ddl.ColumnDDLInfo;
 import org.zsq.gui.app.db.ddl.ConstraintDDLInfo;
 import org.zsq.gui.app.db.ddl.TableDDLInfo;
@@ -26,13 +28,16 @@ import org.zsq.gui.app.db.ddl.TableDDLInfo;
 @Slf4j
 public class DBmetaService {
 	
+	@Setter
+	private DataSource dataSource;
+	
 	/**
 	 * table 列表
 	 * @return
 	 * @throws SQLException
 	 */
-	public static List<String> getTables(){
-		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
+	public List<String> getTables(){
+		QueryRunner run = new QueryRunner(dataSource);
 		try {
 			return run.query("show tables", new ResultSetHandler<List<String>>(){
 				@Override
@@ -53,8 +58,8 @@ public class DBmetaService {
 	 * 切换数据库
 	 * @param name
 	 */
-	public static void changeDB(String name){
-		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
+	public void changeDB(String name){
+		QueryRunner run = new QueryRunner(dataSource);
 		try {
 			run.query("use "+name, new ResultSetHandler<Object>(){
 				@Override
@@ -75,8 +80,8 @@ public class DBmetaService {
 	 * @param type 约束类型
 	 * @return
 	 */
-	public static List<ConstraintDDLInfo> getTableConstraintDDlInfo(String schema,String tableName,String type){
-		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
+	public List<ConstraintDDLInfo> getTableConstraintDDlInfo(String schema,String tableName,String type){
+		QueryRunner run = new QueryRunner(dataSource);
 		try {
 			
 			final String[] cols = new String[]{"t.TABLE_NAME", "t.CONSTRAINT_TYPE", "c.COLUMN_NAME", "c.ORDINAL_POSITION"};
@@ -105,7 +110,7 @@ public class DBmetaService {
 	}
 	
 	
-	protected static void extract(ResultSet rs,Object info, String[] cols) {
+	protected void extract(ResultSet rs,Object info, String[] cols) {
 		for (int i = 0; i < cols.length; i++) {
 			String col = cols[i];
 			String colName = col;
@@ -127,8 +132,8 @@ public class DBmetaService {
 	 * 获取TABLE的ddl信息
 	 * @return
 	 */
-	public static TableDDLInfo getTableDDLInfo(String schema,String tableName){
-		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
+	public TableDDLInfo getTableDDLInfo(String schema,String tableName){
+		QueryRunner run = new QueryRunner(dataSource);
 		try {
 			
 			final String[] cols = new String[]{"TABLE_SCHEMA","TABLE_NAME","TABLE_COLLATION"};
@@ -156,8 +161,8 @@ public class DBmetaService {
 	 * @param tableName
 	 * @return
 	 */
-	public static List<ColumnDDLInfo> getTableColumnDDLInfo(String schema,String tableName){
-		QueryRunner run = ZsqContext.getInstance().getQueryRuner();
+	public List<ColumnDDLInfo> getTableColumnDDLInfo(String schema,String tableName){
+		QueryRunner run = new QueryRunner(dataSource);
 		try {
 			final String[] cols = new String[]{"table_schema","table_name","column_name","column_default","is_nullable","data_type","character_maximum_length","NUMERIC_PRECISION","column_type"};
 			String sql = "select "+ StringUtils.join(cols, ',')+" from information_schema.columns  where table_schema =? and table_name = ?";
@@ -184,7 +189,7 @@ public class DBmetaService {
 	 * @param tableName
 	 * @return
 	 */
-	public static TableDDLInfo getFullTableDDLInfo(String schema,String tableName){
+	public TableDDLInfo getFullTableDDLInfo(String schema,String tableName){
 		TableDDLInfo info = getTableDDLInfo(schema, tableName);
 		info.setPrimaryInfos(getTableConstraintDDlInfo(schema, tableName, ConstraintDDLInfo.PARIMARY));
 		info.setForeignInfos(getTableConstraintDDlInfo(schema, tableName, ConstraintDDLInfo.FORENGN));

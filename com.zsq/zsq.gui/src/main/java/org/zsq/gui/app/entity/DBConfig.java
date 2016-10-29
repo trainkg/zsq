@@ -11,6 +11,8 @@ import lombok.Setter;
 /**
  * 常规DB链接
  * @author Administrator
+ * @deprecated
+ * 采用整合spring方案,不再管理数据库连接
  */
 @Getter
 @Setter
@@ -18,6 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @XmlRootElement
+@Deprecated
 public class DBConfig {
 	private String name;
 	private String host;

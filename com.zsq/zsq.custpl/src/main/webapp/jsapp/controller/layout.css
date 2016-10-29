@@ -1,0 +1,31 @@
+#appl-layout .p-center {
+	padding:5px;
+	background:#eee;
+}
+
+#appl-layout .p-center .easyui-tabs{
+	width: 100%;
+	height: 100%;
+}
+
+#appl-layout .p-north {
+	height:50px;
+	background: #0748AB;
+	color: white;
+}
+#appl-layout .p-north .s-title{
+	padding: 3px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 隶书;
+}
+
+#appl-layout .p-south {
+	height:150px;
+}
+#appl-layout .p-east  {
+	width:300px;
+}
+#appl-layout .p-west {
+	width:300px;
+}
