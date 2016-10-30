@@ -1,9 +1,8 @@
 package org.zsq.gui.app.entity;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -14,9 +13,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@XmlAccessorType(XmlAccessType.NONE)
+@AllArgsConstructor
+@NoArgsConstructor
 public class ModelConfig {
 
+	private String modelName;
+	private String description;
+	
 	/**
 	 * 生成中DAO文件存放路径
 	 */

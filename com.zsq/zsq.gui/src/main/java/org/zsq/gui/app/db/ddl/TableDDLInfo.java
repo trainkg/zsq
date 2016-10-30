@@ -81,6 +81,7 @@ public class TableDDLInfo {
 	}
 	
 	public static void main(String[] args) throws Exception {
+		
 		JAXBContext context = JAXBContext.newInstance(TableDDLInfo.class);
 		context.createMarshaller().marshal(new TableDDLInfo(), System.out);
 		String ss = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ns2:table xmlns:ns2=\"http://www.zsq.com/gui\"><commit><entry><key>a</key><value>123</value></entry><entry><key>b</key><value>123</value></entry></commit><primarys><constraint><columnName>username</columnName><constraintType>123</constraintType><refTableName>tt</refTableName><tableName>tableName</tableName></constraint><constraint><columnName>username</columnName><constraintType>123</constraintType><refTableName>tt</refTableName><tableName>tableName</tableName></constraint></primarys></ns2:table>";

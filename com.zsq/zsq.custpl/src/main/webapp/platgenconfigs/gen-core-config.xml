@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applicationconfig>
+    <modelconfiglist>
+        <controllpath>123</controllpath>
+        <daopath>123</daopath>
+        <jspath>123</jspath>
+        <jsppath>123</jsppath>
+        <servicepath>123</servicepath>
+    </modelconfiglist>
+</applicationconfig>

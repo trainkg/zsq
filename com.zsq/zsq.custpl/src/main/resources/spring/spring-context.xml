@@ -16,9 +16,20 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
     
-    <!-- 加载模块XML -->
-    
-	<!-- <context:annotation-config /> -->
+    <!-- 读取配置文件中配置  需要统一加载不能分散-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:etc/gen-core.properties</value>
+				<value>classpath:etc/config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- <util:properties id="genCore" location="classpath:etc/gen-core.properties"></util:properties> -->
+	
+	
 	<context:component-scan base-package="com.zsq,org.zsq" use-default-filters="false">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
@@ -27,4 +38,11 @@
 	<import resource="classpath:mbase/mybatis-springcontext.xml"/>
 	<!-- 自动生成相关服务 -->
 	<import resource="classpath:spring/autogen-springcontext.xml"/>
+	
+	<bean id="applicationConfig" class="com.zsq.plat.ApplicationConfigFactory" factory-method="initApplicationConfig">
+		<constructor-arg index="0" value="${genConfigFileBasePath}"></constructor-arg>
+	</bean>
+	
+	<!-- <bean id="applicationConfig" class="org.zsq.gui.app.entity.ApplicationConfig" factory-bean="applicationConfigFactory" scope="singleton"></bean> -->
+	
 </beans>

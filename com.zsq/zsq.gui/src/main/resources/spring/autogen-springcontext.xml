@@ -11,4 +11,7 @@
 	<bean class="org.zsq.gui.app.db.service.DBmetaService">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
+	
+	
+	
 </beans>

@@ -1,12 +1,12 @@
 package org.zsq.gui.app.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import org.zsq.gui.app.core.ZsqContext;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +21,15 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@XmlRootElement(name="table",namespace=ZsqContext.ZSQ_GUI_NAMESPACE)
+@XmlRootElement(name="applicationConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ApplicationConfig {
+public class ApplicationConfig  {
+	
+	public ApplicationConfig() {
+		modelConfigList = new ArrayList<ModelConfig>();
+		modelConfigList.add(new ModelConfig("123","123","123","123","123","123","123"));
+	}
+	
+	@XmlElement
 	private List<ModelConfig> modelConfigList;
 }
