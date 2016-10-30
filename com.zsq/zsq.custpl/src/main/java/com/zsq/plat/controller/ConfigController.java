@@ -31,10 +31,7 @@ public class ConfigController {
 	@RequestMapping("/models")
 	@ResponseBody
 	public List<ModelConfig> getAllModels(){
-		System.out.println(config);
-		/*System.out.println(test);*/
 		List<ModelConfig> configList = config.getModelConfigList();
-		
 		return configList;
 	}
 	

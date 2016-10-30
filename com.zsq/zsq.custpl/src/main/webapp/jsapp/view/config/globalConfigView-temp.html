@@ -1,8 +1,8 @@
 <div class="easyui-tabs" data-options="fit:true">
-     <div title="基本配置" style="padding:10px">
+     <div title="模块数据" style="padding:10px">
           <div class="easyui-layout" data-options="fit:true">
 		        <div data-options="region:'center',split:false">
-					<div class="container-fluid" style="padding-top: 10px">
+					<!-- <div class="container-fluid" style="padding-top: 10px">
 					<form class="form-horizontal" role="form">
 					  <div class="form-group">
 					  	
@@ -40,20 +40,24 @@
 					     </div>
 					  </div>
 					</form> 
-					</div>       	
+					</div>   -->  
+					<table class="easyui-datagrid" 
+			            url="dbconfig/models" data-options="fit:true,border:false" rownumbers="true" pagination="true">
+				        <thead>
+				            <tr>
+				                <th field="modelName" width="80">模块名称</th>
+				                <th field="description" width="120">模块描述</th>
+				            </tr>
+				        </thead>
+			    	</table>
+					   	
 		        </div>
-		        <div data-options="region:'south',split:false" style="height: 40px">
+		        <!-- <div data-options="region:'south',split:false" style="height: 40px">
 		        	<div style="text-align: right;padding-top: 6px;padding-right: 6px">
 			        	 <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">确定</a>
 	        			 <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">取消</a>
         			 </div>
-		        </div>
+		        </div> -->
 		  </div>
-     </div>
-     <div title="My Documents" style="padding:10px">
-         
-     </div>
-     <div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
-         
      </div>
  </div>
