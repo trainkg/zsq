@@ -1,9 +1,3 @@
-/*
- * 文件名称:          FileU.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2015年5月18日 上午11:04:56
- */
-
 package zsq.triankg.core.common.utils;
 
 import java.io.BufferedInputStream;

@@ -1,30 +1,7 @@
-/*
- * 文件名称:          NumberU.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2015年5月18日 上午11:03:48
- */
-
 package zsq.triankg.core.common.utils;
 
 import java.text.NumberFormat;
 
-/**
- * 数字转化
- * 
- * <p>
- * <p>
- * 
- * @项目 petrel.net
- *     <p>
- * @作者: jihailong
- *      <p>
- * @日期: 2015年5月18日
- *      <p>
- * @负责人: KISUN
- *       <p>
- * @负责小组: <p>
- *        <p>
- */
 public class NumberU
 {
 

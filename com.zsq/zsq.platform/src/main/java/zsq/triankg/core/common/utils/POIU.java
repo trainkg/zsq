@@ -1,9 +1,3 @@
-/*
- * 文件名称:          POIU.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2015年6月4日 下午5:10:38
- */
-
 package zsq.triankg.core.common.utils;
 
 import java.io.FileNotFoundException;
@@ -30,23 +24,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/**
- *  POI操作帮助类
- * 
- * <p>
- * <p>
- * @项目        petrel.commonU
- * <p>
- * @作者:       jihailong
- * <p>
- * @日期:       2015年6月4日
- * <p>
- * @负责人:     KISUN
- * <p>
- * @负责小组:   
- * <p>
- * <p>
- */
 public class POIU
 {
     /**

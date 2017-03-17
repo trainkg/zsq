@@ -1,10 +1,3 @@
-/*
- * 文件名称:          HibernateUtil.java
- * 版权所有@ 2013-2014 无锡城市云计算中心有限公司，保留所有权利
- * 编译器:           JDK1.7.0_25
- * 时间:             上午9:58:28
- */
-
 package zsq.triankg.core.util.hibernate.genarate;
 
 import java.io.File;
@@ -19,9 +12,6 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * HIBERNATE 帮助类
- * <p>
- * <p>
- * @版本:       CloudView V1.8
  * <p>
  * @作者:       zhuyy
  * <p>

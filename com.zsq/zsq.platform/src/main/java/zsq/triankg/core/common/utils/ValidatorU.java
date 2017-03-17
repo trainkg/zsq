@@ -1,28 +1,5 @@
-/*
- * 文件名称:          ValidatorU.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2015年6月25日 上午1:41:26
- */
-
 package zsq.triankg.core.common.utils;
 
-/**
- *  验证工具类
- * 
- * <p>
- * <p>
- * @项目        petrel.commonU
- * <p>
- * @作者:       jihailong
- * <p>
- * @日期:       2015年6月25日
- * <p>
- * @负责人:     KISUN
- * <p>
- * @负责小组:   
- * <p>
- * <p>
- */
 public class ValidatorU
 {
     /**
@@ -77,10 +54,5 @@ public class ValidatorU
         }
         return false;
     }
-
-    public static void main(String[] args)
-    {
-        String s = "123";
-        System.out.println(isMatches(s, FF_FDS_ZZ));
-    }
+    
 }

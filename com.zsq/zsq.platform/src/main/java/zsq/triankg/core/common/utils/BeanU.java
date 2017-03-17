@@ -1,9 +1,3 @@
-/*
- * 文件名称:          BeanU.java
- * 版权所有@ 2013——2015 中科曙光信息技术无锡有限公司，保留所有权利
- * 时间:             2015年5月18日 上午11:47:39
- */
-
 package zsq.triankg.core.common.utils;
 
 import java.lang.reflect.Field;
@@ -13,23 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 类操作工具
- * 
- * <p>
- * <p>
- * 
- * @项目 petrel.commonU
- *     <p>
- * @作者: jihailong
- *      <p>
- * @日期: 2015年5月18日
- *      <p>
- * @负责人: jihailong
- *       <p>
- * @负责小组: <p>
- *        <p>
- */
 public class BeanU {
 
 	/**

@@ -1,9 +1,3 @@
-/*
- * 文件名称:          BaseDao.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2014年11月20日 下午2:08:52
- */
-
 package zsq.triankg.core.util.hibernate;
 
 import java.io.Serializable;
@@ -13,23 +7,6 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *  Hibernat DAO泛型基类扩展
- * 
- * <p>
- * <p>
- * @项目        hibernate-bridge
- * <p>
- * @作者:       KISUN
- * <p>
- * @日期:       2014年11月20日
- * <p>
- * @负责人:     KISUN
- * <p>
- * @负责小组:   
- * <p>
- * <p>
- */
 public class BaseDao<T, PK extends Serializable> extends HibernateDao<T, PK>
 {
     /**

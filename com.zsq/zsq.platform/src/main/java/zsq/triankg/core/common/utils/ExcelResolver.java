@@ -1,9 +1,3 @@
-/*
- * 文件名称:          ExcelChangeUtil.java
- * 版权所有@ 2013——2015 中科曙光信息技术无锡有限公司，保留所有权利
- * 时间:             2014-8-15 下午1:21:38
- */
-
 package zsq.triankg.core.common.utils;
 
 import java.io.IOException;

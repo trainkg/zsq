@@ -1,18 +1,7 @@
-/*
- * 文件名称:          ServiceException.java
- * 版权所有@ 2013-2014 无锡城市云计算中心有限公司，保留所有权利
- * 编译器:           JDK1.7.0_25
- * 时间:             下午2:10:28
- */
-
 package zsq.triankg.core.util.exception;
 
 /**
  * 业务运行时错误, 统一封装减少对上层的Try catch 污染, 当业务抛出该异常或子类时 , 需要在DOC中明确描述
- * <p>
- * <p>
- * @版本:       CloudView V1.8
- * <p>
  * @作者:       zhuyy
  * <p>
  * @日期:       2014-4-15

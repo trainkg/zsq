@@ -1,9 +1,3 @@
-/*
- * 文件名称:          Errorcode.java
- * 版权所有@ 2013-2014 无锡城市云计算中心有限公司，保留所有权利
- * 编译器:           JDK1.7.0_25
- * 时间:             下午3:31:38
- */
 package zsq.triankg.core.util.exception;
 
 /**

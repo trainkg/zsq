@@ -1,9 +1,3 @@
-/*
- * 文件名称:          TestExcelResolver.java
- * 版权所有@ 2014——2015 KISUN
- * 时间:             2015年6月11日 下午5:42:29
- */
-
 package zsq.triankg.core.common.entity;
 
 import java.io.IOException;
@@ -17,23 +11,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-/**
- * EXCEL 抽象解析器 测试用例
- * 
- * <p>
- * <p>
- * 
- * @项目 petrel.commonU
- *     <p>
- * @作者: jihailong
- *      <p>
- * @日期: 2015年6月11日
- *      <p>
- * @负责人: KISUN
- *       <p>
- * @负责小组: <p>
- *        <p>
- */
+
 public class TestExcelResolver extends AbstractExcelResolver {
 	// 解析返回数据
 	private List<Object> list;
