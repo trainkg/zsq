@@ -1,9 +1,9 @@
 package zsq.triankg.core;
 
-import zsq.triankg.core.plugin.PluginManager;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import zsq.triankg.core.plugin.PluginManager;
 
 /**
  * 

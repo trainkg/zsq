@@ -1,9 +1,9 @@
 package zsq.triankg.core;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Getter;
 
 /**
  * 集中定义返回结果集封装对象 

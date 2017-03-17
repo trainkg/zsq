@@ -26,10 +26,14 @@
 		<apache.lang>3.1</apache.lang>
 		<apache.beanutils>1.8.3</apache.beanutils>
 		<commons.logging>1.2</commons.logging>
+		<commons.io>2.2</commons.io>
 		<org.slf4j>1.7.5</org.slf4j>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<lockback.version>1.0.13</lockback.version>
 		<log4j.over.slf4j>1.7.7</log4j.over.slf4j>
+		<poi.version>3.9</poi.version>
+		<hibernate.version>4.2.3.Final</hibernate.version>
+		<hibernate.validate.version>5.0.2.Final</hibernate.validate.version>
 	</properties>
 	<build>
 		<plugins>
@@ -108,6 +112,11 @@
 	</build>
 	<dependencies>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
@@ -143,9 +152,9 @@
 			<version>${apache.lang}</version>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${lockback.version}</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io}</version>
 		</dependency>
 
 		<dependency>
@@ -153,18 +162,70 @@
 			<artifactId>log4j-over-slf4j</artifactId>
 			<version>${log4j.over.slf4j}</version>
 		</dependency>
+		<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> 
+			<version>${lockback.version}</version> </dependency> <dependency> <groupId>ch.qos.logback</groupId> 
+			<artifactId>logback-classic</artifactId> <version>${lockback.version}</version> 
+			</dependency> -->
+
+		<!-- ORM -->
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${lockback.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validate.version}</version>
+		</dependency>
+		
+		<!-- spring -->
+		<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-core</artifactId>
+	  		<version>${spring.version}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-beans</artifactId>
+	  		<version>${spring.version}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-context</artifactId>
+	  		<version>${spring.version}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-context-support</artifactId>
+	  		<version>${spring.version}</version>
+	  	</dependency>
+	  	
+	  	<!-- POI  -->
+	  	<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
 		</dependency>
 	</dependencies>
 
-	<!-- <repositories> <repository> <id>projectlombok.org</id> <url>http://projectlombok.org/mavenrepo</url> 
+	<!-- <repositories> <reposi 1666tory> <id>projectlombok.org</id> <url>http://projectlombok.org/mavenrepo</url> 
 		</repository> <repository> <id>apache.snapshots</id> <url>http://repository.apache.org/snapshots</url> 
 		</repository> </repositories> -->
-	
-	
+
+
+
+    <!-- 编译的环境自动识别 -->
 	<profiles>
 		<profile>
 			<id>JDK1.7</id>
