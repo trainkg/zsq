@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.zsq</groupId>
 		<artifactId>com.zsq</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${zsq.plantform}</version>
 	</parent>
 	<artifactId>zsq.custpl</artifactId>
 	<packaging>war</packaging>
@@ -25,6 +25,11 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zsq</groupId>
+			<artifactId>zsq.platform</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 
