@@ -2,12 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zsq</groupId>
-    <artifactId>com.zsq</artifactId>
+    <artifactId>zsq.party</artifactId>
     <version>${zsq.plantform}</version>
   </parent>
-  <artifactId>zsq.bcp</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>bcp.resourse</module>
-  </modules>
+  <artifactId>party.resourse</artifactId>
 </project>

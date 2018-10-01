@@ -5,9 +5,11 @@
     <artifactId>com.zsq</artifactId>
     <version>${zsq.plantform}</version>
   </parent>
-  <artifactId>zsq.bcp</artifactId>
+  <artifactId>zsq.party</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>bcp.resourse</module>
+  	<module>party.resourse</module>
+  	<module>party.dao</module>
+  	<module>party.service</module>
   </modules>
 </project>

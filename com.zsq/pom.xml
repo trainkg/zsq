@@ -19,6 +19,7 @@
 		<module>zsq.platform</module>
 		<module>zsq.custpl</module>
 		<module>zsq.bcp</module>
+		<module>zsq.party</module>
 	</modules>
 
 	<properties>
