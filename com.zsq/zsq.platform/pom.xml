@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.zsq</groupId>
     <artifactId>com.zsq</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${zsq.plantform}</version>
   </parent>
   <artifactId>zsq.platform</artifactId>
   <dependencies>
