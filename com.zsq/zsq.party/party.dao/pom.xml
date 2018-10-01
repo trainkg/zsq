@@ -6,4 +6,11 @@
     <version>${zsq.plantform}</version>
   </parent>
   <artifactId>party.dao</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>model-base</artifactId>
+  		<version>${zsq.plantform}</version>
+  	</dependency>
+  </dependencies>
 </project>

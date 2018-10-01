@@ -6,4 +6,16 @@
     <version>${zsq.plantform}</version>
   </parent>
   <artifactId>party.resourse</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.zsq</groupId>
+  		<artifactId>party.dao</artifactId>
+  		<version>${zsq.plantform}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-web</artifactId>
+  		<version>${spring.version}</version>
+  	</dependency>
+  </dependencies>
 </project>
