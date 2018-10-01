@@ -6,4 +6,5 @@
     <version>${zsq.plantform}</version>
   </parent>
   <artifactId>zsq.bcp</artifactId>
+  <packaging>pom</packaging>
 </project>

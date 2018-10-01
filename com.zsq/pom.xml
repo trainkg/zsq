@@ -18,6 +18,7 @@
 		<module>zsq.gui</module>
 		<module>zsq.platform</module>
 		<module>zsq.custpl</module>
+		<module>zsq.bcp</module>
 	</modules>
 
 	<properties>
